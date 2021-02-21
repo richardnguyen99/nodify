@@ -10,7 +10,22 @@ app.set("view engine", "ejs");
 
 app.get("/", function (req, res) {
   res.render("index", {
-    title: "Home page"
+    title: "Home page",
+    pageName: "home"
+  });
+});
+
+app.get("/about", function (req, res) {
+  res.render("about", {
+    title: "About page",
+    pageName: "about"
+  });
+});
+
+app.get("/algorithm", function (req, res) {
+  res.render("algorithm", {
+    title: "Algorithm page",
+    pageName: "algorithm"
   });
 });
 
