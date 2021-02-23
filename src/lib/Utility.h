@@ -4,6 +4,18 @@
 #include <vector>
 #include <random>
 
+template<typename T>
+std::ostream& operator<<(std::ostream& out, std::vector<T> data)
+{
+  out << "[\n";
+  for (const auto& elem : data)
+  {
+    out << "\t" << elem << ",\n";
+  }
+  out << "]";
+  return out;
+}
+
 template<typename T, typename TCreator>
 std::vector<T> randomVectorObjects(TCreator creator)
 {

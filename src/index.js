@@ -1,5 +1,6 @@
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
+const addon = require("../build/Release/addon");
 
 const app = express();
 
@@ -18,14 +19,16 @@ app.get("/", function (req, res) {
 app.get("/about", function (req, res) {
   res.render("about", {
     title: "About page",
-    pageName: "about"
+    pageName: "about",
   });
 });
 
 app.get("/algorithm", function (req, res) {
   res.render("algorithm", {
     title: "Algorithm page",
-    pageName: "algorithm"
+    pageName: "algorithm",
+    hello: addon.hello(),
+    array: addon.randomIntegers(),
   });
 });
 

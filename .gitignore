@@ -105,3 +105,6 @@ dist
 
 # Ignore some user configurations in .vscode
 .vscode/c_cpp_properties.json
+
+# Build files
+build/
