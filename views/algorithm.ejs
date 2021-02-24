@@ -1,4 +1,10 @@
 <%- include("./components/navbar") %>
 <h1>Algorithm route</h1>
 <p><%- hello %></p>
-<p><%- array %></p>
+<div>
+  <% for (var i = 1; i < array.length; i++) { %>
+    <svg width="10" height="<%= array[i] %>">
+      <rect width="10" height="<%= array[i] %>" style="fill:rgb(0,0,255);" />
+    </svg>
+  <% } %>
+</div>
