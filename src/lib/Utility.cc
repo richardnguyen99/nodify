@@ -12,3 +12,16 @@ std::vector<int> randomIntegers()
 
   return randomVectorObjects<int, decltype(creator)>(creator);
 }
+
+void bubbleSort(std::vector<int>& arr)
+{
+  int size = arr.size();
+
+  for (int i = 0; i < size - 1; i++)
+  {
+    for (int j = 0; j < size-i-1; j++)
+    {
+      swap(arr[i], arr[j+1]);
+    }
+  }
+}

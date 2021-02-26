@@ -16,6 +16,14 @@ std::ostream& operator<<(std::ostream& out, std::vector<T> data)
   return out;
 }
 
+template<typename T>
+void swap(T& a, T& b)
+{
+  T temp = a;
+  a = b;
+  b = temp;
+}
+
 template<typename T, typename TCreator>
 std::vector<T> randomVectorObjects(TCreator creator)
 {
@@ -34,5 +42,6 @@ std::vector<T> randomVectorObjects(TCreator creator)
 }
 
 std::vector<int> randomIntegers();
+void bubbleSort(std::vector<int>& arr);
 
 #endif

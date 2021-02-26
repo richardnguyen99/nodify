@@ -1,10 +1,42 @@
 <%- include("./components/navbar") %>
 <h1>Algorithm route</h1>
 <p><%- hello %></p>
-<div>
+<div id="array">
   <% for (var i = 1; i < array.length; i++) { %>
     <svg width="10" height="<%= array[i] %>">
       <rect width="10" height="<%= array[i] %>" style="fill:rgb(0,0,255);" />
     </svg>
   <% } %>
+  <button type="button" onclick="sort(<%= array %>)" class="btn btn-primary">Sort</button>
 </div>
+<script type="text/javascript">
+  function sort(array) {
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        const arrayElement = document.getElementById("array");
+
+        while (arrayElement.firstChild) {
+          arrayElement.remove(arrayElement.firstChild);
+        }
+
+        const response = xhttp.response;
+
+        for (let i = 0; i < response.sortedArray.length; i++) {
+          const element = document.createElement(`
+            <svg width="10" height="${response.sortedArray[i]}">
+              <rect width="10" height="${response.sortedArray[i]}" style="fill:rgb(0,0,255);" />
+            </svg>
+          `)
+          array.appendChild(element);
+        }
+      }
+    };
+
+    xhttp.responseType = "json";
+    xhttp.open("POST", "/algorithm/sorting");
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(JSON.stringify({"array": array}));
+  }
+</script>
