@@ -7,29 +7,25 @@
       <rect width="10" height="<%= array[i] %>" style="fill:rgb(0,0,255);" />
     </svg>
   <% } %>
-  <button type="button" onclick="sort(<%= array %>)" class="btn btn-primary">Sort</button>
 </div>
+<button type="button" onclick="sort(<%- JSON.stringify(array) %>)" class="btn btn-primary">Sort</button>
 <script type="text/javascript">
   function sort(array) {
     const xhttp = new XMLHttpRequest();
 
     xhttp.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
+        console.log(xhttp.response);
         const arrayElement = document.getElementById("array");
 
-        while (arrayElement.firstChild) {
-          arrayElement.remove(arrayElement.firstChild);
-        }
+        arrayElement.innerHTML = "";
 
-        const response = xhttp.response;
-
-        for (let i = 0; i < response.sortedArray.length; i++) {
-          const element = document.createElement(`
-            <svg width="10" height="${response.sortedArray[i]}">
-              <rect width="10" height="${response.sortedArray[i]}" style="fill:rgb(0,0,255);" />
+        for (let i = 0; i < xhttp.response.sortedArray.length; i++) {
+          arrayElement.innerHTML += `
+            <svg width="10" height="${xhttp.response.sortedArray[i]}">
+              <rect width="10" height="${xhttp.response.sortedArray[i]}" style="fill:rgb(0,0,255);" />
             </svg>
-          `)
-          array.appendChild(element);
+          `
         }
       }
     };

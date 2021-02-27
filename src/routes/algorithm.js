@@ -18,9 +18,8 @@ router.get("/sorting", function (req, res) {
 
 router.post("/sorting", function (req, res) {
   let body = req.body;
-  console.log(body);
 
-  res.send({ sortedArray: addon.bubbleSort(body.array)});
+  res.send({ success: true, sortedArray: addon.bubbleSort(body.array) });
 })
 
 module.exports = router;
