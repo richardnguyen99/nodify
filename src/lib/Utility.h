@@ -1,6 +1,7 @@
 #ifndef _UTILITY_H
 #define _UTILITY_H
 
+#include <ostream>
 #include <vector>
 #include <random>
 
@@ -44,4 +45,4 @@ std::vector<T> randomVectorObjects(TCreator creator)
 std::vector<int> randomIntegers();
 void bubbleSort(std::vector<int>& arr);
 
-#endif
+#endif  /* _UTILITY_H */
