@@ -43,6 +43,5 @@ std::vector<T> randomVectorObjects(TCreator creator)
 }
 
 std::vector<int> randomIntegers();
-void bubbleSort(std::vector<int>& arr);
 
 #endif  /* _UTILITY_H */

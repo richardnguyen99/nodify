@@ -1,5 +1,7 @@
 #include <iostream>
+#include <vector>
 #include <napi.h>
+#include "Sorting.h"
 #include "Utility.h"
 
 Napi::String Method(const Napi::CallbackInfo& info) {
@@ -46,7 +48,7 @@ Napi::Value BubbleSort(const Napi::CallbackInfo& info)
     tempArr.push_back(Napi::Value(arr[i]).ToNumber().Int32Value());
   }
 
-  bubbleSort(tempArr);
+  NSorting::bubble_sort(tempArr);
 
   Napi::Array returnArr = Napi::Array::New(info.Env(), tempArr.size());
 

@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <string>
 #include "Utility.h"
+#include "Sorting.h"
 
 int main()
 {
@@ -10,9 +11,9 @@ int main()
 
   std::cout << randomArr << std::endl;
 
-  bubbleSort(randomArr);
+  std::vector<std::vector<int>> animations = NSorting::get_bubble_sort_animation(randomArr);
 
-  std::cout << randomArr << std::endl;
+  std::cout << animations << std::endl;
 
   return 0;
 }
