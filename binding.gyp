@@ -2,7 +2,11 @@
   "targets": [
     {
       "target_name": "addon",
-      "sources": [ "src/lib/addon.cc", "src/lib/Utility.cc" ],
+      "sources": [
+        "src/lib/addon.cc",
+        "src/lib/Utility.cc",
+        "src/lib/Sorting.cc"
+      ],
       "include_dirs": [
         "<!@(node -p \"require('node-addon-api').include\")"
       ],

@@ -7,7 +7,6 @@ router.get("/", function (req, res) {
   res.render("algorithm", {
     title: "Algorithm page",
     pageName: "algorithm",
-    hello: addon.hello(),
     array: addon.randomIntegers(),
   });
 });

@@ -108,3 +108,8 @@ dist
 
 # Build files
 build/
+
+# Executing, binary and output files
+*.exe
+*.o
+*.out
