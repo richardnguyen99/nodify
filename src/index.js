@@ -1,12 +1,21 @@
+const path = require("path");
 const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const bodyParser = require("body-parser");
+const nodeSassMiddleware = require("node-sass-middleware");
 const addon = require("../build/Release/addon");
 const router = require("./routes");
 
 const app = express();
 
-app.use(express.static("views/static"));
+app.use(nodeSassMiddleware({
+  src: path.join(__dirname, "..", "scss"),
+  dest: path.join(__dirname, "..", "views", "static"),
+  debug: true,
+  outputStyle: "compressed",
+  prefix: "/static",
+}));
+app.use("/static", express.static(path.join(__dirname, "..", "views", "static")));
 app.use(expressLayouts);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
