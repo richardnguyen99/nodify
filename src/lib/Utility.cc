@@ -1,7 +1,17 @@
+/**
+ * @file Utility.cc
+ * @author Richard Nguyen
+ * @brief Utility source for configurations and helper functions
+ * @version 0.1
+ * @date 2021-03-08
+ *
+ * @copyright Copyright (c) 2021
+ */
 #include <algorithm>
 #include "Utility.h"
 
-std::vector<int> randomIntegers()
+std::vector<int>
+Utility::randomIntegers(int number)
 {
   std::mt19937 generator{ std::random_device{}() };
   std::uniform_int_distribution<> dist{ 0, 100 };
@@ -10,5 +20,5 @@ std::vector<int> randomIntegers()
       return dist(generator);
   };
 
-  return randomVectorObjects<int, decltype(creator)>(creator);
+  return Utility::randomVectorObjects<int, decltype(creator)>(creator, number);
 }

@@ -4,14 +4,32 @@
 #include "Sorting.h"
 #include "Utility.h"
 
-Napi::String Method(const Napi::CallbackInfo& info) {
+Napi::String
+Method(const Napi::CallbackInfo& info)
+{
   Napi::Env env = info.Env();
   return Napi::String::New(env, "world");
 }
 
-Napi::Value CreateRandomIntegers(const Napi::CallbackInfo& info)
+Napi::Value
+CreateRandomIntegers(const Napi::CallbackInfo& info)
 {
-  auto random_arr = randomIntegers();
+  Napi::Env env = info.Env();
+
+  if (info.Length() < 1) {
+    Napi::TypeError::New(env, "Require one argument in randomIntegers()").ThrowAsJavaScriptException();
+
+    return env.Null();
+  }
+
+  if (!info[0].IsNumber()) {
+    Napi::TypeError::New(env, "Require an integer in randomIntegers()").ThrowAsJavaScriptException();
+
+    return env.Null();
+  }
+
+  int listSize = info[0].As<Napi::Number>().Int32Value();
+  auto random_arr = Utility::randomIntegers(listSize);
 
   Napi::Array random_array = Napi::Array::New(info.Env(), random_arr.size());
 
