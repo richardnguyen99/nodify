@@ -1,0 +1,19 @@
+{
+  "name": "nodify",
+  "version": "1.0.0",
+  "description": "\"So you want to do visualization?\" - source code",
+  "main": "src/index.js",
+  "repository": "git@github.com:richardnguyen99/nodify.git",
+  "author": "Richard Nguyen <richard.ng0616@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "scripts": {
+    "watch": "nodemon src/index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
