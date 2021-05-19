@@ -1,19 +1,21 @@
-"use strict";
-
 const express = require("express");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const app = express();
 
 // App configuration
+app.set("PORT", process.env.PORT || 4000);
 app.set("view engine", "pug");
 
-app.get("/", function (req, res) {
+app.get("/", (_req, res) => {
   res.render("home", {
     title: "Home",
-    content: "testing"
-  })
+    content: "testing",
+  });
 });
 
-app.listen(4000, function () {
-    console.log(`App is listening ...`);
+app.listen(app.get("PORT"), () => {
+  console.log("App is listening ...");
 });
