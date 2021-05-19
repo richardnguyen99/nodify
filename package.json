@@ -15,6 +15,7 @@
   "scripts": {
     "test": "echo \"Update test here\"",
     "watch": "nodemon src/index.js",
+    "start": "node src/index.js",
     "lint": "eslint . --ext .js",
     "lint:fix": "yarn lint --fix"
   },
