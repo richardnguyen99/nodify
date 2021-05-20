@@ -6,13 +6,15 @@ html(lang="en")
     meta(name="viewport", content="width-device-width", initial-scale="1.0")
     title #{title} - Nodify
     meta(name="description", content="\"So you want to do visualization?\" - web page")
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css",
+          rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x",
+           crossorigin="anonymous")
+    link(href="/css/main.css", rel="stylesheet")
 
   body
     //- navbar
 
     //- content
     block content
-    h1 "So you want to do visualization?"
-    p #{content}
 
     //- footer
