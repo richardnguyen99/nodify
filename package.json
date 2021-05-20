@@ -13,9 +13,11 @@
     "pug": "^3.0.2"
   },
   "scripts": {
-    "test": "echo \"Update test here\"",
+    "test": "jest",
     "scss": "sass src/public/scss/main.scss src/public/css/main.css",
-    "watch": "nodemon src/index.js",
+    "watch:scss": "yarn run scss --watch",
+    "watch:node": "nodemon src/index.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"NodeJS,SCSS\" -c \"cyan.bold,green.bold\" \"yarn run watch:node\" \"yarn run watch:scss\"",
     "start": "node src/index.js",
     "lint": "eslint . --ext .js",
     "lint:fix": "yarn lint --fix"
@@ -23,12 +25,17 @@
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.11",
+    "@types/jest": "^26.0.23",
+    "concurrently": "^6.1.0",
     "eslint": "^7.26.0",
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.23.2",
+    "eslint-plugin-jest": "^24.3.6",
     "husky": "^6.0.0",
+    "jest": "^26.6.3",
     "nodemon": "^2.0.7",
     "prettier": "^2.3.0",
-    "sass": "^1.32.13"
+    "sass": "^1.32.13",
+    "supertest": "^6.1.3"
   }
 }
