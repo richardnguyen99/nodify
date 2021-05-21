@@ -20,6 +20,10 @@ a:hover {
   color: var(--primary-color);
 }
 
+.text-nodify {
+  color: var(--primary-color);
+}
+
 .header {
   display: flex;
   align-items: center;
@@ -47,15 +51,30 @@ a:hover {
   background-color: var(--primary-button);
   border-color: var(--primary-button);
 }
+.btn__shadow {
+  box-shadow: 0 20px 20px -10px rgba(var(--primary-color), 0.5);
+}
 .btn__text {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 0 0.5rem;
   height: 2.5rem;
-  width: 100%;
   border-radius: 0.5rem;
   font-weight: 600;
+  transition: all 0.25s ease;
+}
+.btn__text--primary {
+  color: var(--primary-background);
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.btn__text--primary:hover {
+  color: var(--primary-white);
+}
+.btn__text--float:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 20px -10px rgba(29, 185, 84, 0.5);
 }
 .btn__text--sm {
   height: 2rem;
@@ -73,8 +92,27 @@ a:hover {
   background-color: var(--primary-button--onHover);
   border-color: var(--primary-button--onHover);
 }
-.btn:not(.btn-shadow):not(.shadow) {
+.btn:not(.btn-shadow):not(.shadow) :not(.btn__shadow):not(.btn__shadow--hover) {
   box-shadow: none !important;
+}
+
+.animation__float {
+  animation-name: floating;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  0% {
+    transform: translate(0, 0px);
+  }
+  50% {
+    transform: translate(0, 15px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

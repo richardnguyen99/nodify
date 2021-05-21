@@ -1,5 +1,21 @@
 extends layout
 
 block content
-  h1 "So you want to do visualization?"
-  p #{content}
+  //- Begin::Container
+  .container
+    //- Begin::Hero_Section_Row
+    div(id="hero").row.align-items-center
+      .col-12.col-md-5.col-lg-6.order-md-2
+        img(src="/assets/svg/hero-1.svg", alt="Hero section banner").animation__float
+      .col-12.col-md-7.col-lg-6.order-md-1
+        h1.display-3.text-center.text-md-start
+          | Welcome to&nbsp;
+          span.text-nodify.fw-bold Nodify
+        h3.text-muted.lead.text-center.text-md-start.mb-5.mb-lg-8 Understand and make Data structure and Algorithms become more interesting.
+        .text-center.text-md-start
+          a(href="#").btn.btn__text.btn__text--primary.btn__text--float.btn__shadow--hover Get started
+
+
+
+    //- End::Hero_section_Row
+  //- End::Container

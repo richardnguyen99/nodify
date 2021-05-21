@@ -21,15 +21,38 @@
     }
   }
 
+  &__shadow {
+    box-shadow: 0 20px 20px -10px rgba($color: var(--primary-color), $alpha: 0.5);
+  }
+
   &__text {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     padding: 0 0.5rem;
     height: 2.5rem;
-    width: 100%;
     border-radius: 0.5rem;
     font-weight: 600;
+
+    transition: all 0.25s ease;
+
+    &--primary {
+      color: var(--primary-background);
+      background-color: var(--primary-color);
+      border-color: var(--primary-color);
+
+      &:hover {
+        color: var(--primary-white);
+      }
+    }
+
+    &--float {
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 20px -10px rgba($color: #1db954, $alpha: 0.5);
+      }
+    }
+
 
     &--sm {
       height: 2rem;
@@ -53,7 +76,8 @@
   }
 
   // Disable box-shadow when not specified
-  &:not(.btn-shadow):not(.shadow) {
+  &:not(.btn-shadow):not(.shadow)
+    :not(.btn__shadow):not(.btn__shadow--hover) {
     box-shadow: none !important;
   }
 }
