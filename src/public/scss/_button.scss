@@ -1,0 +1,59 @@
+.btn {
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 0.5rem;
+
+    &--sm {
+      height: 2rem;
+      width: 2rem;
+
+      &:hover {
+        color: var(--primary-color);
+        background-color: var(--primary-button);
+        border-color: var(--primary-button);
+      }
+    }
+  }
+
+  &__text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0.5rem;
+    height: 2.5rem;
+    width: 100%;
+    border-radius: 0.5rem;
+    font-weight: 600;
+
+    &--sm {
+      height: 2rem;
+
+      &:hover {
+        background-color: var(--primary-button);
+        border-color: var(--primary-button);
+      }
+    }
+  }
+
+  &--primary {
+    color: var(--primary-color);
+    background-color: var(--primary-button);
+    border-color: var(--primary-button);
+
+    &:hover {
+      background-color: var(--primary-button--onHover);
+      border-color: var(--primary-button--onHover);
+    }
+  }
+
+  // Disable box-shadow when not specified
+  &:not(.btn-shadow):not(.shadow) {
+    box-shadow: none !important;
+  }
+}

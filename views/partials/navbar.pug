@@ -1,0 +1,32 @@
+//- Begin::header
+navbar.header
+  //- Begin::Header__Container
+  div.container.d-flex.justify-content-between.align-items-stretch
+    //- Begin::Left
+    div.d-flex.align-items-center
+      //- Begin::Toggle_Menu
+      button(id="nodify_toggle_menu",data-bs-toggle="modal",data-bs-target="#nodify_toggle_menu").btn.btn__icon.btn--primary.me-3
+        //- Begin::Toggle_Menu_Icon
+        span.svg-icon.svg-icon-1
+          img(src="/assets/svg/menu-burger.svg" alt="Menu")
+        //- End::Toggle_Menu_Icon
+      //- End::Toggle_Menu
+      //- Begin::Brand
+      a(href="/")
+        img(src="/assets/svg/nodify-brand.svg" alt="logo")
+      //- End::Brand
+    //- End::Left=
+    //- Begin::Right
+    div.d-flex.align-items-center
+      button(id="nodify_search_icon").btn.btn__icon.btn__icon--sm.me-3
+        span.svg-icon.svg-icon-1
+          img(src="/assets/svg/search.svg" alt="algorithm" width="24")
+      button(id="nodify_document_icon").btn.btn__icon.btn__icon--sm.me-3
+        span.svg-icon.svg-icon-1
+          img(src="/assets/svg/document.svg" alt="algorithm" width="20")
+      button(id="nodify_dsa_icon").btn.btn__icon.btn__icon--sm.me-3
+        span.svg-icon.svg-icon-1
+          img(src="/assets/svg/statistics.svg" alt="algorithm" width="24")
+    //- End::Right
+  //- End::Header__container
+//- End::header
