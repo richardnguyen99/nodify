@@ -14,10 +14,21 @@ block content
         h3.text-muted.lead.text-center.text-md-start.mb-5.mb-lg-8 Where we make Data Structures and Algorithms more interesting.
         .text-center.text-md-start
           a(href="#").btn.btn--text.btn--brand.btn--float.btn--shadow--onHover.me-3 Get started
-          a(href="#").btn.btn--text.btn--dark.btn--float.btn--flat
+          a(href="https://github.com/richardnguyen99/nodify").btn.btn--text.btn--dark.btn--float.btn--flat
             img(src="/assets/svg/github-16.svg", alt="Github").me-2
             |Get started
 
-
     //- End::Hero_section_Row
   //- End::Container
+  //- Start::Menu_Modal
+  div(id="nodifyToggleMenu", tabindex="-1", aria-labeledby="nodifyToggleMenuLabel", aria-hidden="true", role="dialog").modal.fade
+    .modal-dialog
+      .modal-content
+        .modal-header
+          h5(id="nodifyToggleMenuLabel").modal-title Start menu
+          button(type="button" data-bs-dismiss="modal" aria-label="Close").btn-close
+
+        .modal-body  ...
+
+        .modal-footer Hi
+  //- End::Menu_Modal
