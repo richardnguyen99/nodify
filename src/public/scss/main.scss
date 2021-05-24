@@ -1,6 +1,8 @@
-@use "root";
-@use "reboot";
-@use "text";
-@use "navbar";
-@use "button";
-@use "animation";
+@import "variables";
+@import "colors";
+@import "root";
+@import "reboot";
+@import "text";
+@import "navbar";
+@import "button";
+@import "animation";

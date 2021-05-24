@@ -1,5 +1,5 @@
 body {
-  background-color: var(--primary-background);
+  background-color: rgba(var(--nodify-background), 1);
 }
 
 a {
@@ -9,6 +9,6 @@ a {
   transition: color 200ms ease;
 
   &:hover {
-    color: var(--primary-color);
+    color: rgba(var(--nodify-brand), 1);
   }
 }

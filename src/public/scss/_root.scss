@@ -1,9 +1,14 @@
 :root {
-  --primary-color: #1db954;
-  --primary-white: #fff;
-  --primary-black: #191414;
-  --primary-background: #fbf9f6;
+  --nodify-brand: 29, 185, 84;
+  --nodify-primary: 25, 91, 255;
+  --nodify-warn: 255, 186, 0;
+  --nodify-danger: 255,71,87;
+  --nodify-success: 70,201,58;
+  --nodify-dark: 30,30,30;
+  --nodify-light: 244,247,248;
+  --nodify-github: 36 ,41, 46;
+  --nodify-icon: 243, 229, 207;
+  --nodify-background: 251, 249, 246;
 
-  --primary-button: #f9f2e7;
-  --primary-button--onHover: #f3e5cf;
+  --nodify-button-text: 255, 255, 255;
 }

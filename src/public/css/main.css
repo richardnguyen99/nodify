@@ -1,14 +1,47 @@
+[class*="--brand"] {
+  --nodify-color: var(--nodify-brand);
+}
+
+[class*="--primary"] {
+  --nodify-color: var(--nodify-primary);
+}
+
+[class*="--success"] {
+  --nodify-color: var(--nodify-success);
+}
+
+[class*="--warning"] {
+  --nodify-color: var(--nodify-warning);
+}
+
+[class*="--danger"] {
+  --nodify-color: var(--nodify-danger);
+}
+
+[class*="--dark"] {
+  --nodify-color: var(--nodify-dark);
+}
+
+[class*="--icon"] {
+  --nodify-color: var(--nodify-icon);
+}
+
 :root {
-  --primary-color: #1db954;
-  --primary-white: #fff;
-  --primary-black: #191414;
-  --primary-background: #fbf9f6;
-  --primary-button: #f9f2e7;
-  --primary-button--onHover: #f3e5cf;
+  --nodify-brand: 29, 185, 84;
+  --nodify-primary: 25, 91, 255;
+  --nodify-warn: 255, 186, 0;
+  --nodify-danger: 255,71,87;
+  --nodify-success: 70,201,58;
+  --nodify-dark: 30,30,30;
+  --nodify-light: 244,247,248;
+  --nodify-github: 36 ,41, 46;
+  --nodify-icon: 243, 229, 207;
+  --nodify-background: 251, 249, 246;
+  --nodify-button-text: 255, 255, 255;
 }
 
 body {
-  background-color: var(--primary-background);
+  background-color: rgba(var(--nodify-background), 1);
 }
 
 a {
@@ -17,11 +50,11 @@ a {
   transition: color 200ms ease;
 }
 a:hover {
-  color: var(--primary-color);
+  color: rgba(var(--nodify-brand), 1);
 }
 
-.text-nodify {
-  color: var(--primary-color);
+.text {
+  color: rgba(var(--nodify-color), 1);
 }
 
 .header {
@@ -33,7 +66,14 @@ a:hover {
   height: 10rem;
 }
 
-.btn__icon {
+.btn {
+  color: rgba(var(--nodify-button-text), 1);
+  background-color: rgba(var(--nodify-color), 1);
+}
+.btn:hover {
+  color: rgba(var(--nodify-button-text), 1);
+}
+.btn--icon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -41,20 +81,26 @@ a:hover {
   height: 2.5rem;
   width: 2.5rem;
   border-radius: 0.5rem;
+  background: rgba(var(--nodify-background), 1);
 }
-.btn__icon--sm {
+.btn--icon:hover {
+  color: rgba(var(--nodify-button-text), 1);
+  background: rgba(var(--nodify-color), 1);
+}
+.btn--icon--sm {
   height: 2rem;
   width: 2rem;
 }
-.btn__icon--sm:hover {
-  color: var(--primary-color);
-  background-color: var(--primary-button);
-  border-color: var(--primary-button);
+.btn--shadow {
+  box-shadow: 0 20px 20px -10px rgba($color: var(--btn-background), $alpha: 0.5);
 }
-.btn__shadow {
-  box-shadow: 0 20px 20px -10px rgba(var(--primary-color), 0.5);
+.btn--shadow--onHover:hover {
+  box-shadow: 0 20px 20px -10px rgba(var(--nodify-color), 0.5);
 }
-.btn__text {
+.btn--float:hover {
+  transform: translateY(-5px);
+}
+.btn--text {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -64,39 +110,23 @@ a:hover {
   font-weight: 600;
   transition: all 0.25s ease;
 }
-.btn__text--primary {
-  color: var(--primary-background);
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-}
-.btn__text--primary:hover {
-  color: var(--primary-white);
-}
-.btn__text--float:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 20px -10px rgba(29, 185, 84, 0.5);
-}
-.btn__text--sm {
+.btn--text--sm {
   height: 2rem;
 }
-.btn__text--sm:hover {
-  background-color: var(--primary-button);
-  border-color: var(--primary-button);
+.btn--flat {
+  background-color: rgba(var(--nodify-color), 0);
+  color: rgba(var(--nodify-color), 1);
+  border: 2px solid rgba(var(--nodify-color), 0.5);
 }
-.btn--primary {
-  color: var(--primary-color);
-  background-color: var(--primary-button);
-  border-color: var(--primary-button);
+.btn--flat:hover {
+  border: 2px solid rgba(var(--nodify-color), 1);
+  color: rbga(var(--nodify-color), 1);
 }
-.btn--primary:hover {
-  background-color: var(--primary-button--onHover);
-  border-color: var(--primary-button--onHover);
-}
-.btn:not(.btn-shadow):not(.shadow) :not(.btn__shadow):not(.btn__shadow--hover) {
+.btn:not(.btn-shadow):not(.shadow) :not(.btn__shadow):not(.btn__shadow--onHover) {
   box-shadow: none !important;
 }
 
-.animation__float {
+.animation--float {
   animation-name: floating;
   animation-duration: 3s;
   animation-iteration-count: infinite;

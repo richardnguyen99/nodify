@@ -3,5 +3,13 @@
 
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "[scss]": {
+    "editor.suggest.insertMode": "replace",
+    "editor.formatOnSave": false,
+    "gitlens.codeLens.scopes": [
+      "document"
+    ]
   }
 }

@@ -1,0 +1,27 @@
+[class*="--brand"] {
+  --nodify-color: var(--nodify-brand);
+}
+
+[class*="--primary"] {
+  --nodify-color: var(--nodify-primary);
+}
+
+[class*="--success"] {
+  --nodify-color: var(--nodify-success);
+}
+
+[class*="--warning"] {
+  --nodify-color: var(--nodify-warning);
+}
+
+[class*="--danger"] {
+  --nodify-color: var(--nodify-danger);
+
+}
+[class*="--dark"] {
+  --nodify-color: var(--nodify-dark);
+}
+
+[class*="--icon"] {
+  --nodify-color: var(--nodify-icon);
+}

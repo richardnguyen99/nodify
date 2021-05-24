@@ -1,6 +1,12 @@
 .btn {
+  color: rgba(var(--nodify-button-text), 1.0);
+  background-color: rgba(var(--nodify-color), 1.0);
 
-  &__icon {
+  &:hover {
+    color: rgba(var(--nodify-button-text), 1.0);
+  }
+
+  &--icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -9,23 +15,34 @@
     width: 2.5rem;
     border-radius: 0.5rem;
 
+    background: rgba(var(--nodify-background), 1.0);
+
+    &:hover {
+      color: rgba(var(--nodify-button-text), 1);
+      background: rgba(var(--nodify-color), 1);
+    }
+
     &--sm {
       height: 2rem;
       width: 2rem;
-
-      &:hover {
-        color: var(--primary-color);
-        background-color: var(--primary-button);
-        border-color: var(--primary-button);
-      }
     }
   }
 
-  &__shadow {
-    box-shadow: 0 20px 20px -10px rgba($color: var(--primary-color), $alpha: 0.5);
+  &--shadow {
+    box-shadow: 0 20px 20px -10px #{'rgba($color: var(--btn-background), $alpha: 0.5)'};
+
+    &--onHover:hover {
+      box-shadow: 0 20px 20px -10px rgba(var(--nodify-color), 0.5);
+    }
   }
 
-  &__text {
+  &--float {
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+
+  &--text {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -36,48 +53,24 @@
 
     transition: all 0.25s ease;
 
-    &--primary {
-      color: var(--primary-background);
-      background-color: var(--primary-color);
-      border-color: var(--primary-color);
-
-      &:hover {
-        color: var(--primary-white);
-      }
-    }
-
-    &--float {
-      &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 20px 20px -10px rgba($color: #1db954, $alpha: 0.5);
-      }
-    }
-
-
     &--sm {
       height: 2rem;
-
-      &:hover {
-        background-color: var(--primary-button);
-        border-color: var(--primary-button);
-      }
     }
   }
 
-  &--primary {
-    color: var(--primary-color);
-    background-color: var(--primary-button);
-    border-color: var(--primary-button);
+  &--flat {
+    background-color: rgba(var(--nodify-color), 0);
+    color: rgba(var(--nodify-color), 1.0);
+    border: 2px solid rgba(var(--nodify-color), 0.5);
 
     &:hover {
-      background-color: var(--primary-button--onHover);
-      border-color: var(--primary-button--onHover);
+      border: 2px solid rgba(var(--nodify-color), 1);
+      color: rbga(var(--nodify-color), 1);
     }
   }
 
   // Disable box-shadow when not specified
-  &:not(.btn-shadow):not(.shadow)
-    :not(.btn__shadow):not(.btn__shadow--hover) {
+  &:not(.btn-shadow):not(.shadow) :not(.btn__shadow):not(.btn__shadow--onHover) {
     box-shadow: none !important;
   }
 }
