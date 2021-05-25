@@ -2,10 +2,24 @@
   outline: none;
 }
 
+hr {
+  margin: 0;
+  height: 0;
+  border-top: 1px solid rgba(var(--nodify-color), 1);
+}
+
+.hr {
+  &--sm {
+    max-width: 5rem;
+    margin-top: 0;
+    border-top-width: 10px;
+  }
+}
+
 body {
   background-color: rgba(var(--nodify-background), 1);
   font-family: Poppins, Helvetica, sans-serif;
-  font-size: 13px;
+  font-size: 16px;
   font-weight: 400;
 }
 
