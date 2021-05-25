@@ -1,0 +1,33 @@
+div(id="nodifyStartMenu", tabindex="-1", aria-modal="true", role="dialog", aria-hidden="true").modal.fade
+  .modal-dialog.modal-fullscreen
+    .modal-content
+      .container
+        .modal-header.d-flex.align-items-center.justify-content-between.border-0
+          h3.fw-bold Quick links
+          .btn.btn--icon.btn--icon-sm(data-bs-dismiss="modal")
+            span.svg-icon.svg-icon-1
+              svg(xmlns="http://www.w3.org/2000/svg", xmlns:xlink="http://www.w3.org/1999/xlink", width="24px", height="24px", viewBox="0 0 24 24", version="1.1")
+                g(transform="translate(12.000000, 12.000000) rotate(-45.000000) translate(-12.000000, -12.000000) translate(4.000000, 4.000000)", fill="#000000")
+                  rect(fill="#000000", x="0", y="7", width="16", height="2", rx="1")
+                  rect(fill="#000000", opacity="0.5", transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)", x="0", y="7", width="16", height="2", rx="1")
+
+        .modal-body
+          .row.py-10.g-3
+            .col-lg-12
+              .row.g-3
+                .col-sm-4
+                  a(href="/ds").card.card--warning.card--hoverable.card--label.card--flat.shadow-none.mb-3
+                    .card-body.d-flex.flex-column.align-items-center.justify-content-center
+                      h3.fs-5.mb-2.text-dark.fw-bold Data structures
+                      p.mb-0.text-black-50 How to store data
+                .col-sm-4
+                  a(href="/algorithm").card.card--primary.card--hoverable.card--label.card--flat.shadow-none.mb-3
+                    .card-body.d-flex.flex-column.align-items-center.justify-content-center
+                      h3.fs-5.mb-2.text-dark.fw-bold Algorithms
+                      p.mb-0.text-black-50 Cool visualization!
+                .col-sm-4
+                  a(href="https://medium.com/").card.card--brand.card--hoverable.card--label.card--flat.shadow-none.mb-3
+                    .card-body.d-flex.flex-column.align-items-center.justify-content-center
+                      h3.fs-5.mb-2.text-dark.fw-bold Medium
+                      p.mb-0.text-black-50 Detailed explanation
+

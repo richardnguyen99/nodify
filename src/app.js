@@ -1,6 +1,16 @@
+/**
+ * Setup file for Express app.
+ * This contains only configuration, environments
+ * and middlewares for runnning and testing
+ *
+ * @author Richard Nguyen <richard.ng0616@gmail.com>
+ */
+
 const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
+
+const controllers = require("./controllers");
 
 dotenv.config();
 
@@ -17,5 +27,8 @@ app.get("/", (_req, res) => {
     content: "testing",
   });
 });
+
+app.use("/ds", controllers.dsRouter);
+app.use("/algorithm", controllers.algorithmRouter);
 
 module.exports = app;

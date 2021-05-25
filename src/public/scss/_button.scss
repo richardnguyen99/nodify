@@ -58,7 +58,7 @@
     }
   }
 
-  &--flat {
+  &--border {
     background-color: rgba(var(--nodify-color), 0);
     color: rgba(var(--nodify-color), 1.0);
     border: 2px solid rgba(var(--nodify-color), 0.5);
@@ -66,6 +66,15 @@
     &:hover {
       border: 2px solid rgba(var(--nodify-color), 1);
       color: rbga(var(--nodify-color), 1);
+    }
+  }
+
+  &--flat {
+    background-color: rgba(var(--nodify-color), 0.3);
+    color: rgba(var(--nodify-dark), 1.0);
+
+    &:hover {
+      background-color: rgba(var(--nodify-color), 0.5);
     }
   }
 

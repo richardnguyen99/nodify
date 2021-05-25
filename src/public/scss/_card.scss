@@ -1,0 +1,21 @@
+.card {
+  border: 0;
+
+  &--hoverable {
+    cursor: pointer;
+    transition: all 200ms ease;
+  }
+
+  &--label {
+    min-height: 125px;
+  }
+
+  &--flat {
+    background-color: rgba(var(--nodify-color), 0.2);
+    color: rgba(var(--nodify-dark), 1.0);
+
+    &:hover {
+      background-color: rgba(var(--nodify-color), 0.5);
+    }
+  }
+}

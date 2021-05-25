@@ -29,7 +29,7 @@
 :root {
   --nodify-brand: 29, 185, 84;
   --nodify-primary: 25, 91, 255;
-  --nodify-warn: 255, 186, 0;
+  --nodify-warning: 255, 186, 0;
   --nodify-danger: 255,71,87;
   --nodify-success: 70,201,58;
   --nodify-dark: 30,30,30;
@@ -40,8 +40,15 @@
   --nodify-button-text: 255, 255, 255;
 }
 
+* {
+  outline: none;
+}
+
 body {
   background-color: rgba(var(--nodify-background), 1);
+  font-family: Poppins, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
 }
 
 a {
@@ -113,14 +120,21 @@ a:hover {
 .btn--text--sm {
   height: 2rem;
 }
-.btn--flat {
+.btn--border {
   background-color: rgba(var(--nodify-color), 0);
   color: rgba(var(--nodify-color), 1);
   border: 2px solid rgba(var(--nodify-color), 0.5);
 }
-.btn--flat:hover {
+.btn--border:hover {
   border: 2px solid rgba(var(--nodify-color), 1);
   color: rbga(var(--nodify-color), 1);
+}
+.btn--flat {
+  background-color: rgba(var(--nodify-color), 0.3);
+  color: rgba(var(--nodify-dark), 1);
+}
+.btn--flat:hover {
+  background-color: rgba(var(--nodify-color), 0.5);
 }
 .btn:not(.btn-shadow):not(.shadow) :not(.btn__shadow):not(.btn__shadow--onHover) {
   box-shadow: none !important;
@@ -143,6 +157,23 @@ a:hover {
   100% {
     transform: translate(0, 0);
   }
+}
+.card {
+  border: 0;
+}
+.card--hoverable {
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+.card--label {
+  min-height: 125px;
+}
+.card--flat {
+  background-color: rgba(var(--nodify-color), 0.2);
+  color: rgba(var(--nodify-dark), 1);
+}
+.card--flat:hover {
+  background-color: rgba(var(--nodify-color), 0.5);
 }
 
 /*# sourceMappingURL=main.css.map */

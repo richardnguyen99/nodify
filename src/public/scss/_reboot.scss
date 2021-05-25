@@ -1,5 +1,12 @@
+* {
+  outline: none;
+}
+
 body {
   background-color: rgba(var(--nodify-background), 1);
+  font-family: Poppins, Helvetica, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
 }
 
 a {
