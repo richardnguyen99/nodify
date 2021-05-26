@@ -8,9 +8,11 @@
   "[scss]": {
     "editor.suggest.insertMode": "replace",
     "editor.formatOnSave": false,
-    "gitlens.codeLens.scopes": [
-      "document"
-    ]
+    "gitlens.codeLens.scopes": ["document"]
+  },
+  "[cpp]": {
+    "editor.suggest.insertMode": "replace",
+    "editor.semanticHighlighting.enabled": true
   },
   "files.associations": {
     "vector": "cpp",
