@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn lint:clang && yarn lint && yarn compile && git add . && yarn test
+yarn lint:clang && yarn lint && yarn compile && yarn test
