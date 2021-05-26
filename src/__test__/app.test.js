@@ -13,6 +13,10 @@ describe("Getting app...", () => {
     request(app).get("/algorithm").expect(200, done);
   });
 
+  it("responds to /ping", (done) => {
+    request(app).get("/ping").expect(200, done);
+  });
+
   it("responsed to /invalid_url", (done) => {
     request(app).get("/invalid_url").expect(404, done);
   });

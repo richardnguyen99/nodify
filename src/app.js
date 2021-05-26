@@ -9,6 +9,7 @@
 const path = require("path");
 const express = require("express");
 const dotenv = require("dotenv");
+const addon = require("../build/Release/nodify.node");
 
 const controllers = require("./controllers");
 
@@ -26,6 +27,10 @@ app.get("/", (_req, res) => {
     title: "Home",
     content: "testing",
   });
+});
+
+app.get("/ping", (_req, res) => {
+  res.send(addon.hello());
 });
 
 app.use("/ds", controllers.dsRouter);

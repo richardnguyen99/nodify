@@ -7,25 +7,31 @@
   "author": "Richard Nguyen <richard.ng0616@gmail.com>",
   "license": "MIT",
   "private": true,
+  "gypfile": true,
   "dependencies": {
+    "bindings": "^1.5.0",
     "dotenv": "^9.0.2",
     "express": "^4.17.1",
+    "node-addon-api": "^3.2.0",
     "pug": "^3.0.2"
   },
   "scripts": {
     "test": "jest",
+    "compile": "cmake-js compile",
     "scss": "sass src/public/scss/main.scss src/public/css/main.css",
     "watch:scss": "yarn run scss --watch",
     "watch:node": "nodemon src/index.js",
     "watch": "concurrently -k -p \"[{name}]\" -n \"NodeJS,SCSS\" -c \"cyan.bold,green.bold\" \"yarn run watch:node\" \"yarn run watch:scss\"",
     "start": "node src/index.js",
     "lint": "eslint . --ext .js",
-    "lint:fix": "yarn lint --fix"
+    "lint:fix": "yarn lint --fix",
+    "lint:clang": "clang-format -i --glob=*/**/*.{h,cpp,cc}"
   },
   "devDependencies": {
     "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.11",
     "@types/jest": "^26.0.23",
+    "clang-format": "^1.5.0",
     "concurrently": "^6.1.0",
     "eslint": "^7.26.0",
     "eslint-config-airbnb-base": "^14.2.1",
