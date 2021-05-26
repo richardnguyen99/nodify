@@ -105,3 +105,4 @@ dist
 
 # CMake and Makefile builds
 build/
+!build/Release
