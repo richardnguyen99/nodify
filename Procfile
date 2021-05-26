@@ -1,1 +1,1 @@
-web: yarn compile && yarn start
+web: npm install -g cmake-js && yarn compile && yarn start
