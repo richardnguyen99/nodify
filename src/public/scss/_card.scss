@@ -19,6 +19,18 @@
     }
   }
 
+  &__tags {
+    display: flex;
+    padding: 5px 10px;
+    justify-content: flex-start;
+    right: 0;
+    top: 0;
+    left: auto;
+    bottom: auto;
+    align-items: flex-end;
+  }
+
+
   &__article {
     background: rgba(var(--nodify-color), 1.0);
     color: rgba(var(--nodify-dark), 1.0);

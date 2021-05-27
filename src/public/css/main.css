@@ -158,6 +158,14 @@ a:hover {
 .btn--flat:hover {
   background-color: rgba(var(--nodify-color), 0.5);
 }
+.btn--link {
+  border-radius: 0.4rem;
+  color: #000;
+}
+.btn--link.active, .btn--link:active, .btn--link:hover {
+  color: rgba(var(--nodify-brand), 1);
+  background-color: #f9f2e7;
+}
 .btn:not(.btn-shadow):not(.shadow) :not(.btn__shadow):not(.btn__shadow--onHover) {
   box-shadow: none !important;
 }
@@ -196,6 +204,16 @@ a:hover {
 }
 .card--flat:hover {
   background-color: rgba(var(--nodify-color), 0.5);
+}
+.card__tags {
+  display: flex;
+  padding: 5px 10px;
+  justify-content: flex-start;
+  right: 0;
+  top: 0;
+  left: auto;
+  bottom: auto;
+  align-items: flex-end;
 }
 .card__article {
   background: rgba(var(--nodify-color), 1);

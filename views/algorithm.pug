@@ -1,6 +1,30 @@
-
 extends layout
 
 block content
   .container
-    h1 Algorithm
+    section(id="collections-title").row.justify-content-center.pt-5.pt-md-5
+      .col-md-10.col-lg-8.text-center
+        hr(size="5").hr--sm.hr--warning.mb-5.mb-md-5.mx-auto
+        h2.display-3.mb-4.fw-bold
+          span.text--underline--warning Algorithms
+        p.mb-3 How algorithms work visually
+
+    section(id="collections-sub-title-1").row.pt-5.pt-md-5
+      .col-md-10.col-lg-8
+        h4.display-6.mb-4.fw-bold
+          span Sorting
+
+    section(id="collections-card").row.g-2.g-lg-3
+      .col-12.col-md-6.col-lg-4
+        a(href="/").card.card__article
+          img(src="/assets/images/bubble-sort.jpg", alt="Bubble sort")
+          div.card__text
+            h5.card-title Bubble sort
+            p Swapping everything!
+
+      .col-12.col-md-6.col-lg-4
+        a(href="/").card.card__article
+          img(src="/assets/images/insertion-sort.jpg", alt="Insertion sort")
+          .card__text
+            h5.card-title Insertion sort
+            p.badge.bg-primary sort

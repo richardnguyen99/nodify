@@ -78,6 +78,16 @@
     }
   }
 
+  &--link {
+    &.active,&:active,&:hover {
+      color: rgba(var(--nodify-brand), 1);
+      background-color: #f9f2e7;
+    }
+
+    border-radius: 0.4rem;
+    color: #000;
+  }
+
   // Disable box-shadow when not specified
   &:not(.btn-shadow):not(.shadow) :not(.btn__shadow):not(.btn__shadow--onHover) {
     box-shadow: none !important;

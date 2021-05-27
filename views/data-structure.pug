@@ -2,4 +2,24 @@ extends layout
 
 block content
   .container
-    h1 Data structure
+    section(id="collections-title").row.pt-5.pt-md-5
+      .col-md-10.col-lg-8
+        h3.display-5.mb-4.fw-bold
+          span.text--underline--warning Sorting
+        p.mb-5 How to sort element efficiently
+
+    section(id="collections-card").row.g-2.g-lg-3
+      .col-12.col-md-6.col-lg-4
+        a.card.card__article(href="/")
+          img(src="/assets/images/bubble-sort.jpg", alt="Bubble sort").card-img-top
+          .card__text
+            h5.card-title Bubble sort
+            p Swapping everything!
+
+      .col-12.col-md-6.col-lg-4
+        a.card.card__article(href="/")
+          img(src="/assets/images/insertion-sort.jpg", alt="Insertion sort").card-img-top
+          .card__text
+            h5.card-title Insertion sort
+            p Moving everything to the left!
+

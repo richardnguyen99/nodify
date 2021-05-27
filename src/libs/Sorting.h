@@ -27,6 +27,10 @@ namespace NSorting {
  */
 void bubble_sort(std::vector<int>& arr);
 
+template <typename Iter>
+void bubble_sort(Iter begin, Iter end)
+{
+}
 /**
  * @brief Insertion sorting algorithm
  *
