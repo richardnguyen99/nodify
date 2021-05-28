@@ -33,3 +33,7 @@ a {
     color: rgba(var(--nodify-brand), 1);
   }
 }
+
+.tab-pane:not(.active) {
+  display: none;
+}

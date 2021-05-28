@@ -72,6 +72,10 @@ a:hover {
   color: rgba(var(--nodify-brand), 1);
 }
 
+.tab-pane:not(.active) {
+  display: none;
+}
+
 .text {
   color: rgba(var(--nodify-color), 1);
 }
@@ -188,6 +192,20 @@ a:hover {
     transform: translate(0, 0);
   }
 }
+.form--solid {
+  background-color: #f5f8f7;
+  color: #5e6278;
+  border-color: #f5f8f7;
+  border-radius: 0.65rem;
+  transition: color 0.2s ease, background-color 0.2s ease;
+  font-weight: 500;
+  font-size: 1rem;
+}
+.form--solid:active, .form--solid:focus {
+  background-color: #eef3f7;
+  border-color: #eef3f7;
+}
+
 .card {
   border: 0;
 }

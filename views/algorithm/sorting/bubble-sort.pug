@@ -10,6 +10,26 @@ block content
             a(href="/").text-muted.text-hover-primary Home
           li.breadcrumb-item
             a(href="/alogirthm").text-muted.text-hover-primary Algorithm
-      div.d-flex.align-items-center.flex-nowrap.text-nowrap.overflow-auto.py-1
-        button.btn.btn--link Home
-
+      ul(id="tablist" role="tablist").nav.nav-tabs.border-0
+        li(role="presentation").nav-item
+          button(id="main-tab" data-bs-toggle="tab" data-bs-target="#main" type="button" role="tab" aria-controls="main" aria-selected="true").btn.btn--link.mx-1.active Main page
+        li(role="presentation").nav-item
+          button(id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false").btn.btn--link.mx-1 Details
+        li(role="presentation").nav-item
+          button(id="extra-tab" data-bs-toggle="tab" data-bs-target="#extra" type="button" role="tab" aria-controls="extra" aria-selected="false").btn.btn--link.mx-1 Extra page
+    div(style="border-radius: 0.65rem;").card.mt-5
+      div(id="main" role="tabpanel" aria-labeledby="main-tab").tab-pane.fade.show.active
+        form.form.d-flex.justify-content-center.align-items-center
+          div(style="max-width: 800px; padding-top: 5rem; padding-bottom: 5rem").card-body
+            .row.mb-3
+              label(for="arrayRange").col-lg-3.col-form-label.fw-bolder Array range
+              .col-lg-9
+                input(type="text" id="arrayRange" value="8").form-control.form-control-lg.form--solid
+            .row.mb-3
+              label(for="arrayRange").col-lg-3.col-form-label.fw-bolder
+              .col-lg-9
+                button.btn.btn--text.btn--brand.fw-bolder Generate
+      div(id="profile" role="tabpanel" aria-labeledby="profile-tab").tab-pane.fade
+        p Bubble sorting detail
+      div(id="extra" role="tabpanel" aria-labeledby="extra-tab").tab-pane.fade
+        p Bubble sorting extra
