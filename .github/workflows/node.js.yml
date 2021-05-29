@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ martrix.operating-system }}
+    runs-on: ${{ matrix.operating-system }}
 
     strategy:
       matrix:
