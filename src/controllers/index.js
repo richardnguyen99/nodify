@@ -6,8 +6,10 @@
 
 const dsRouter = require("./data-structure");
 const algorithmRouter = require("./algorithm");
+const generateRouter = require("./generate");
 
 module.exports = {
   dsRouter,
   algorithmRouter,
+  generateRouter,
 };

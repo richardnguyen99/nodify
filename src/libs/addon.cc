@@ -39,7 +39,7 @@ Napi::Value CreateRandomIntegers(const Napi::CallbackInfo& info)
   }
 
   int listSize = info[0].As<Napi::Number>().Int32Value();
-  auto random_arr = Utility::randomIntegers(listSize);
+  auto random_arr = Utility::generate_data<int>(listSize);
 
   Napi::Array random_array = Napi::Array::New(info.Env(), random_arr.size());
 

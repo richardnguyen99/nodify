@@ -1,4 +1,9 @@
 .form {
+  &__check--solid > input:checked {
+    background-color: rgba(var(--nodify-color), 1);
+    border-color: rgba(var(--nodify-color), 1);
+  }
+
   &--solid {
     background-color: #f5f8f7;
     color: #5e6278;

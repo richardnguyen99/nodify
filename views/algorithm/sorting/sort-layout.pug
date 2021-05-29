@@ -1,0 +1,30 @@
+extends ../../layout
+
+block content
+  .container
+    div.d-flex.justify-content-between.align-items-center.flex-wrap.flex-sm-nowrap
+      div.d-flex.flex-column.align-items-start.justify-content-center.flex-wrap.me-1
+        h5.text-dark.fw-bolder.my-1 Bubble sort
+        ul(style="font-size: 0.75rem; --bs-breadcrumb-divider: '-';").breadcrumb.breadcrumb-line.bg-transparent.text-muted.fw-bold.p-0.my-1
+          li.breadcrumb-item
+            a(href="/").text-muted.text-hover-primary Home
+          li.breadcrumb-item
+            a(href="/alogirthm").text-muted.text-hover-primary Algorithm
+      ul(id="tablist" role="tablist").nav.nav-tabs.border-0
+        li(role="presentation").nav-item
+          button(id="main-tab" data-bs-toggle="tab" data-bs-target="#main" type="button" role="tab" aria-controls="main" aria-selected="true").btn.btn--link.mx-1.active Main page
+        li(role="presentation").nav-item
+          button(id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false").btn.btn--link.mx-1 Details
+        li(role="presentation").nav-item
+          button(id="extra-tab" data-bs-toggle="tab" data-bs-target="#extra" type="button" role="tab" aria-controls="extra" aria-selected="false").btn.btn--link.mx-1 Extra page
+    div(style="border-radius: 0.65rem;").card.mt-5
+      div(id="main" role="tabpanel" aria-labeledby="main-tab").tab-pane.fade.show.active
+        block main
+      div(id="profile" role="tabpanel" aria-labeledby="profile-tab").tab-pane.fade
+        block profile
+      div(id="extra" role="tabpanel" aria-labeledby="extra-tab").tab-pane.fade
+        block extra
+
+block script
+  script(src="/js/generate.js")
+  block main-script

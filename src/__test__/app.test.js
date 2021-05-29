@@ -1,3 +1,9 @@
+/**
+ * Jest testing file for loading pages
+ *
+ * @author Richard Nguyen <richard.ng0616@gmail.com>
+ */
+
 const request = require("supertest");
 
 const app = require("../app");

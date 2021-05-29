@@ -192,6 +192,10 @@ a:hover {
     transform: translate(0, 0);
   }
 }
+.form__check--solid > input:checked {
+  background-color: rgba(var(--nodify-color), 1);
+  border-color: rgba(var(--nodify-color), 1);
+}
 .form--solid {
   background-color: #f5f8f7;
   color: #5e6278;

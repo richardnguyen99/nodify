@@ -39,21 +39,6 @@ std::ostream& operator<<(std::ostream& out, std::vector<T> data)
 }
 
 /**
- * @deprecated Use std::swap instead
- *
- * @tparam T
- * @param a
- * @param b
- */
-template <typename T>
-void swap(T& a, T& b)
-{
-  T temp = a;
-  a = b;
-  b = temp;
-}
-
-/**
  * @brief Create a random object with mt19937 with a specfied length
  *
  * @tparam T
@@ -77,27 +62,29 @@ std::vector<T> randomVectorObjects(TCreator creator, int listSize)
 }
 
 /**
- * @brief Create a random object with mt19937 without specfied length
+ * @brief Generate data contains range that is double number of elements
  *
  * @tparam T
- * @tparam TCreator
- * @param creator
+ * @param list_size
  * @return std::vector<T>
  */
-template <typename T, typename TCreator>
-std::vector<T> randomVectorObjects(TCreator creator)
+template <typename T>
+std::vector<T> generate_data(int list_size)
 {
   std::mt19937 generator{std::random_device{}()};
-  std::uniform_int_distribution<> listSizeDist{15, 30};
+  std::uniform_int_distribution<> list_range{0, list_size * 2};
 
-  auto listSize = listSizeDist(generator);
-  std::vector<T> values;
+  auto random_data = [&generator, &list_range]() {
+    return list_range(generator);
+  };
 
-  for (int i = 0; i < listSize; i++) {
-    values.push_back(creator());
+  std::vector<T> result;
+
+  for (size_t i = 0; i < list_size; ++i) {
+    result.push_back(random_data());
   }
 
-  return values;
+  return result;
 }
 
 /**

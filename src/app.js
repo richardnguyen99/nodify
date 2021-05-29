@@ -20,6 +20,8 @@ const app = express();
 // App configuration
 app.set("PORT", process.env.PORT || 4000);
 app.set("view engine", "pug");
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.get("/", (_req, res) => {
@@ -35,5 +37,6 @@ app.get("/ping", (_req, res) => {
 
 app.use("/ds", controllers.dsRouter);
 app.use("/algorithm", controllers.algorithmRouter);
+app.use("/generate", controllers.generateRouter);
 
 module.exports = app;
