@@ -30,7 +30,4 @@ jobs:
           cmd: install # will run `yarn install` command
       - uses: borales/actions-yarn@v2.0.0
         with:
-          cmd: compie # will run `yarn compile` command
-      - uses: borales/actions-yarn@v2.0.0
-        with:
           cmd: test # will run `yarn test` command
