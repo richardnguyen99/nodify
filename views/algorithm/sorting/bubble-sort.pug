@@ -12,15 +12,18 @@ block main
         .col-lg-9
           div.d-flex.align-items-center
             div.form-check.form--brand.form__check--solid.form-check-solid.me-4
-              input(id="arrayType" type="checkbox" checked="checked" value="node").form-check-input
-              label(for="arrayType").form-check-label.fw-bold Node
+              input(id="arrayNode" type="checkbox" checked="checked" value="node").form-check-input
+              label(for="arrayNode").form-check-label.fw-bold Node
             div.form-check.form--brand.form__check--solid.form-check-solid.me-4
-              input(id="arrayType" type="checkbox" value="bar").form-check-input
-              label(for="arrayType").form-check-label.fw-bold Bar
+              input(id="arrayBar" type="checkbox" value="bar").form-check-input
+              label(for="arrayBar").form-check-label.fw-bold Bar
       .row.mb-3
-        label(for="arrayRange").col-lg-3.col-form-label.fw-bolder
+        label.col-lg-3.col-form-label.fw-bolder
         .col-lg-9
           button(id="generateButton" type="button" onclick="generateArray()").btn.btn--text.btn--brand.fw-bolder Generate
+
+  div.array__container
+
 block profile
   h1 Hello World
 

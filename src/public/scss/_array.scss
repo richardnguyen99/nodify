@@ -1,0 +1,41 @@
+.array {
+  &__container {
+    user-select: none;
+    overflow: hidden;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 3rem;
+  }
+
+  &__list {
+    &-node {
+      position: absolute;
+      list-style: none;
+      padding: 0;
+      clear: both;
+      white-space: nowrap;
+
+      &__item {
+        position: absolute;
+        border: 1px solid gray;
+        text-align: center;
+        transition: 0.2s all ease;
+
+        &:first-of-type {
+          border-bottom-left-radius: 8px;
+          border-top-left-radius: 8px;
+        }
+
+        &:last-of-type {
+          border-bottom-right-radius: 8px;
+          border-top-right-radius: 8px;
+        }
+      }
+    }
+
+    &-bar {
+
+    }
+  }
+}
