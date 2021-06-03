@@ -7,6 +7,7 @@ block main
         label(for="arrayRange").col-lg-3.col-form-label.fw-bolder Array range
         .col-lg-9
           input(type="text" id="arrayRange" value="8").form-control.form-control-lg.form--solid
+          div(id="arrayNodeNote").form-text.mb-3 Please keep the value under 15
       .row.mb-3
         label(for="arrayRange").col-lg-3.col-form-label.fw-bolder Array type
         .col-lg-9
@@ -20,7 +21,9 @@ block main
       .row.mb-3
         label.col-lg-3.col-form-label.fw-bolder
         .col-lg-9
-          button(id="generateButton" type="button" onclick="generateArray()").btn.btn--text.btn--brand.fw-bolder Generate
+          .d-flex
+            button(id="generateButton" type="button" onclick="generateArray()").btn.btn--text.btn--brand.fw-bolder.me-3 Generate
+            button(id="generateButton" type="button" onclick="bubbleSort()").btn.btn--text.btn--brand.btn--border.fw-bolder Bubble sort
 
   div.array__container
 

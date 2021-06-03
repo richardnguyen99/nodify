@@ -28,7 +28,7 @@ function generateNodeArray(randomArray) {
     listElement.style.width = "50px";
     listElement.style.height = "50px";
     listElement.style.padding = "12.5px 0";
-    listElement.style.transform = `translate(${i * 50}px)`;
+    listElement.style.transform = `translate(${i * 50 + 8 * i}px)`;
 
     listElement.appendChild(document.createTextNode(randomArray[i]));
     arrayContainer.querySelector("ol").appendChild(listElement);

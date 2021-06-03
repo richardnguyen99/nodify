@@ -6,6 +6,8 @@
 
 const express = require("express");
 
+const utility = require("../util");
+
 const algorithmRouter = express.Router();
 
 algorithmRouter.get("/", (_req, res) => {
@@ -16,7 +18,7 @@ algorithmRouter.get("/:algorithmType/:algorithm", (req, res) => {
   const { params } = req;
 
   res.render(`algorithm/${params.algorithmType}/${params.algorithm}`, {
-    title: params.algorithm,
+    title: utility.stringConverter.hyphenToTitle(params.algorithm),
   });
 });
 

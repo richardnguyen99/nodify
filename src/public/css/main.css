@@ -153,14 +153,15 @@ a:hover {
 }
 .btn--border:hover {
   border: 2px solid rgba(var(--nodify-color), 1);
-  color: rbga(var(--nodify-color), 1);
+  background-color: rgba(var(--nodify-color), 1);
+  color: rgba(var(--nodify-button-text), 1);
 }
 .btn--flat {
   background-color: rgba(var(--nodify-color), 0.3);
   color: rgba(var(--nodify-dark), 1);
 }
 .btn--flat:hover {
-  background-color: rgba(var(--nodify-color), 0.5);
+  background-color: rgba(var(--nodify-color), 1);
 }
 .btn--link {
   border-radius: 0.4rem;
@@ -286,17 +287,13 @@ a:hover {
 }
 .array__list-node__item {
   position: absolute;
-  border: 1px solid gray;
   text-align: center;
   transition: 0.2s all ease;
-}
-.array__list-node__item:first-of-type {
-  border-bottom-left-radius: 8px;
-  border-top-left-radius: 8px;
-}
-.array__list-node__item:last-of-type {
-  border-bottom-right-radius: 8px;
-  border-top-right-radius: 8px;
+  border-radius: 0.4rem;
+  margin-right: 0.5rem;
+  font-weight: 600;
+  background-color: #f5f8f7;
+  color: rgba(var(--nodify-dark), 1);
 }
 
 /*# sourceMappingURL=main.css.map */
