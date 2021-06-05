@@ -15,7 +15,8 @@
 
 #include <vector>
 
-namespace NSorting {
+namespace NSorting
+{
 /**
  * @brief Bubble sorting algorithm
  *
@@ -25,7 +26,7 @@ namespace NSorting {
  *
  * @param arr Container of integer values
  */
-void bubble_sort(std::vector<int>& arr);
+void bubble_sort(std::vector<int> &arr);
 
 template <typename Iter>
 void bubble_sort(Iter begin, Iter end)
@@ -40,7 +41,7 @@ void bubble_sort(Iter begin, Iter end)
  *
  * @param arr Container of integer values
  */
-void insertion_sort(std::vector<int>& arr);
+void insertion_sort(std::vector<int> &arr);
 
 /**
  * @brief Get the bubble sort animation object
@@ -52,7 +53,7 @@ void insertion_sort(std::vector<int>& arr);
  * @param arr
  * @return std::vector<std::vector<int>>
  */
-std::vector<std::vector<int>> get_bubble_sort_animation(std::vector<int>& arr);
+std::vector<std::vector<int>> get_bubble_sort_animation(std::vector<int> &arr);
 
 /**
  * @brief Get the insertion sort animation object
@@ -65,8 +66,7 @@ std::vector<std::vector<int>> get_bubble_sort_animation(std::vector<int>& arr);
  * @param arr
  * @return std::vector<std::vector<int>>
  */
-std::vector<std::vector<int>> get_insertion_sort_animation(
-    std::vector<int>& arr);
-}  // namespace NSorting
+std::vector<std::vector<int>> get_insertion_sort_animation(std::vector<int> &arr);
+} // namespace NSorting
 
 #endif /* NODIFY_SORTING_H */

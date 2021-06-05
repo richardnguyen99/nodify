@@ -7,6 +7,7 @@
 const express = require("express");
 
 const utility = require("../util");
+const addon = require("../../build/Release/nodify.node");
 
 const algorithmRouter = express.Router();
 
@@ -19,6 +20,13 @@ algorithmRouter.get("/:algorithmType/:algorithm", (req, res) => {
 
   res.render(`algorithm/${params.algorithmType}/${params.algorithm}`, {
     title: utility.stringConverter.hyphenToTitle(params.algorithm),
+  });
+});
+
+// To keep it simple, we only use this router to get animations
+algorithmRouter.post("/:algorithmType/:algorithm", (req, res) => {
+  res.send({
+    animation: addon.hello(),
   });
 });
 

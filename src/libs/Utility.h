@@ -15,7 +15,8 @@
 #include <random>
 #include <vector>
 
-namespace Utility {
+namespace Utility
+{
 /**
  * @brief Output overloading that helps print out std::vector.
  *
@@ -28,10 +29,11 @@ namespace Utility {
  * @return std::ostream&
  */
 template <typename T>
-std::ostream& operator<<(std::ostream& out, std::vector<T> data)
+std::ostream &operator<<(std::ostream &out, std::vector<T> data)
 {
   out << "[\n";
-  for (const auto& elem : data) {
+  for (const auto &elem : data)
+  {
     out << "\t" << elem << ",\n";
   }
   out << "]";
@@ -54,7 +56,8 @@ std::vector<T> randomVectorObjects(TCreator creator, int listSize)
 
   std::vector<T> values;
 
-  for (int i = 0; i < listSize; i++) {
+  for (int i = 0; i < listSize; i++)
+  {
     values.push_back(creator());
   }
 
@@ -74,13 +77,12 @@ std::vector<T> generate_data(int list_size)
   std::mt19937 generator{std::random_device{}()};
   std::uniform_int_distribution<> list_range{0, list_size * 2};
 
-  auto random_data = [&generator, &list_range]() {
-    return list_range(generator);
-  };
+  auto random_data = [&generator, &list_range]() { return list_range(generator); };
 
   std::vector<T> result;
 
-  for (size_t i = 0; i < list_size; ++i) {
+  for (size_t i = 0; i < list_size; ++i)
+  {
     result.push_back(random_data());
   }
 
@@ -97,7 +99,7 @@ std::vector<T> generate_data(int list_size)
  * @return std::vector<T>
  */
 template <typename T>
-std::vector<T> slice(std::vector<T>& v, int m, int n)
+std::vector<T> slice(std::vector<T> &v, int m, int n)
 {
   std::vector<T> vec(n - m + 1);
   std::copy(v.begin() + m, v.begin() + n + 1, vec.begin());
@@ -111,6 +113,6 @@ std::vector<T> slice(std::vector<T>& v, int m, int n)
  * @return std::vector<int>
  */
 std::vector<int> randomIntegers(int listSize);
-}  // namespace Utility
+} // namespace Utility
 
 #endif /* NODIFY_UTILITY_H */

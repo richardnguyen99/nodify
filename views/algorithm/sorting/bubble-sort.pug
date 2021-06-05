@@ -23,7 +23,7 @@ block main
         .col-lg-9
           .d-flex
             button(id="generateButton" type="button" onclick="generateArray()").btn.btn--text.btn--brand.fw-bolder.me-3 Generate
-            button(id="generateButton" type="button" onclick="bubbleSort()").btn.btn--text.btn--brand.btn--border.fw-bolder Bubble sort
+            button(id="bubbleSortButton" type="button" onclick="bubbleSort()").btn.btn--text.btn--brand.btn--border.fw-bolder Bubble sort
 
   div.array__container
 
@@ -32,6 +32,3 @@ block profile
 
 block extra
   h1 Hello World
-
-block main-script
-  script(src="/js/bubble-sort.js")

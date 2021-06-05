@@ -10,21 +10,24 @@
  */
 
 #include "Sorting.h"
+#include "Utility.h"
 #include <algorithm>
 #include <iostream>
 #include <vector>
-#include "Utility.h"
 
-void NSorting::bubble_sort(std::vector<int>& arr)
+void NSorting::bubble_sort(std::vector<int> &arr)
 {
   // Instead of looping every element, we use
   // a temporary to detect if there is no swapping
   // then stop the loop.
   bool swapped = true;
-  while (swapped) {
+  while (swapped)
+  {
     swapped = false;
-    for (size_t i = 0; i < arr.size() - 1; i++) {
-      if (arr[i] > arr[i + 1]) {
+    for (size_t i = 0; i < arr.size() - 1; i++)
+    {
+      if (arr[i] > arr[i + 1])
+      {
         std::swap(arr[i], arr[i + 1]);
         swapped = true;
       }
@@ -32,15 +35,17 @@ void NSorting::bubble_sort(std::vector<int>& arr)
   }
 }
 
-void NSorting::insertion_sort(std::vector<int>& arr)
+void NSorting::insertion_sort(std::vector<int> &arr)
 {
   // No need to compare the first element
   // So start with i = 1
-  for (int i = 1; i < arr.size(); i++) {
+  for (int i = 1; i < arr.size(); i++)
+  {
     auto key = arr[i];
     int j = i - 1;
 
-    while (j >= 0 && key < arr[j]) {
+    while (j >= 0 && key < arr[j])
+    {
       arr[j + 1] = arr[j];
       j--;
     }
@@ -48,22 +53,25 @@ void NSorting::insertion_sort(std::vector<int>& arr)
   }
 }
 
-std::vector<std::vector<int>> NSorting::get_bubble_sort_animation(
-    std::vector<int>& arr)
+std::vector<std::vector<int>> NSorting::get_bubble_sort_animation(std::vector<int> &arr)
 {
   std::vector<std::vector<int>> animations;
 
-  for (int i = 0; i < arr.size() - 1; i++) {
-    for (int j = 0; j < arr.size() - i - 1; j++) {
+  for (int i = 0; i < arr.size() - 1; i++)
+  {
+    for (int j = 0; j < arr.size() - i - 1; j++)
+    {
       // 0: List of two indices for comparing
       animations.push_back({j, j + 1});
 
-      if (arr[j] > arr[j + 1]) {
+      if (arr[j] > arr[j + 1])
+      {
         // 1: Use 1 for swapping that current index
         animations.push_back({j, j + 1});
         std::swap(arr[j], arr[j + 1]);
       }
-      else {
+      else
+      {
         // 1: Use 0 for not swapping
         animations.push_back({j, j});
       }
@@ -72,10 +80,12 @@ std::vector<std::vector<int>> NSorting::get_bubble_sort_animation(
       // to normal indices.
       animations.push_back({j, j + 1});
 
-      if (j == arr.size() - i - 2) {
+      if (j == arr.size() - i - 2)
+      {
         animations.push_back({static_cast<int>(arr.size()) - i - 1, 1});
       }
-      else {
+      else
+      {
         // dummy
         animations.push_back({j + 1, 0});
       }
@@ -85,23 +95,26 @@ std::vector<std::vector<int>> NSorting::get_bubble_sort_animation(
   return animations;
 }
 
-std::vector<std::vector<int>> NSorting::get_insertion_sort_animation(
-    std::vector<int>& arr)
+std::vector<std::vector<int>> NSorting::get_insertion_sort_animation(std::vector<int> &arr)
 {
   std::vector<std::vector<int>> animations;
 
-  for (int i = 1; i < arr.size(); i++) {
+  for (int i = 1; i < arr.size(); i++)
+  {
     bool isSorted = false;
     int key = arr[i];
-    for (int j = i - 1; j >= 0 && !isSorted; j--) {
+    for (int j = i - 1; j >= 0 && !isSorted; j--)
+    {
       // 0: for comparison
       animations.push_back({j, j + 1, 0});
-      if (key < arr[j]) {
+      if (key < arr[j])
+      {
         // 1: swapped
         std::swap(arr[j], arr[j + 1]);
         animations.push_back({j, j + 1, 1});
       }
-      else {
+      else
+      {
         // 1: no swapping
         animations.push_back({j, j + 1, 0});
       }

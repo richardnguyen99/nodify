@@ -9,7 +9,7 @@ const request = require("supertest");
 const app = require("../app");
 
 describe("Testing API endpoints", () => {
-  it("Testing /generate/array endpoit", (done) => {
+  it("Testing /generate/array endpoint", (done) => {
     request(app)
       .post("/generate/array")
       .send({ arrayRange: 8 })

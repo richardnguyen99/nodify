@@ -80,7 +80,10 @@
     "xlocmes": "cpp",
     "xlocmon": "cpp",
     "xloctime": "cpp",
-    "xtree": "cpp"
+    "xtree": "cpp",
+    "array": "cpp",
+    "string_view": "cpp",
+    "*.tcc": "cpp"
   },
   "compile-hero.disable-compile-files-on-did-save-code": false,
   "cmake.configureOnOpen": false

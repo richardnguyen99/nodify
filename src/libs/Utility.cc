@@ -8,8 +8,8 @@
  * @copyright Copyright (c) 2021
  */
 #include "Utility.h"
-#include <math.h>
 #include <algorithm>
+#include <math.h>
 
 std::vector<int> Utility::randomIntegers(int number)
 {
