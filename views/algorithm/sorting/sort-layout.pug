@@ -14,18 +14,18 @@ block content
             a(href="/alogirthm").text-muted.text-hover-primary  #{title}
       ul(id="tablist" role="tablist").nav.nav-tabs.border-0
         li(role="presentation").nav-item
-          button(id="main-tab" data-bs-toggle="tab" data-bs-target="#main" type="button" role="tab" aria-controls="main" aria-selected="true").btn.btn--link.mx-1.active Main page
+          button(id="visualization-tab" data-bs-toggle="tab" data-bs-target="#main" type="button" role="tab" aria-controls="main" aria-selected="true").btn.btn--link.mx-1.active Visualization
         li(role="presentation").nav-item
-          button(id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false").btn.btn--link.mx-1 Details
+          button(id="documentation-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false").btn.btn--link.mx-1 Documentation
         li(role="presentation").nav-item
-          button(id="extra-tab" data-bs-toggle="tab" data-bs-target="#extra" type="button" role="tab" aria-controls="extra" aria-selected="false").btn.btn--link.mx-1 Extra page
+          button(id="sample-tab" data-bs-toggle="tab" data-bs-target="#extra" type="button" role="tab" aria-controls="extra" aria-selected="false").btn.btn--link.mx-1 Code sample
     div(style="border-radius: 0.65rem;").card.mt-5
-      div(id="main" role="tabpanel" aria-labeledby="main-tab").tab-pane.fade.show.active
-        block main
-      div(id="profile" role="tabpanel" aria-labeledby="profile-tab").tab-pane.fade
-        block profile
-      div(id="extra" role="tabpanel" aria-labeledby="extra-tab").tab-pane.fade
-        block extra
+      div(id="main" role="tabpanel" aria-labeledby="visualization-tab").tab-pane.fade.show.active
+        block visual
+      div(id="profile" role="tabpanel" aria-labeledby="documentation-tab").tab-pane.fade
+        block documentation
+      div(id="extra" role="tabpanel" aria-labeledby="sample-tab").tab-pane.fade
+        block sample
 
 block script
   script(src="/js/array.js")

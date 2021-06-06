@@ -37,3 +37,9 @@ a {
 .tab-pane:not(.active) {
   display: none;
 }
+
+pre {
+  border-radius: 0.65rem;
+  background-color: #f5f8f7;
+  padding: 1rem;
+}
