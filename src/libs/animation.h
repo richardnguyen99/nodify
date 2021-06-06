@@ -18,7 +18,7 @@ namespace nodify
 {
 struct Animation
 {
-  std::vector<int[3]> sorting;
+  std::vector<std::vector<int>> sorting;
 };
 
 /**
@@ -42,19 +42,20 @@ void get_bubble_sort_animation(Iter begin, Iter end, Animation &animation)
   {
     swapping = false;
 
-    for (Iter current = begin; current != end; ++curent)
+    for (Iter current = begin; current != end; ++current)
     {
-      animation.push_back({0, current, current + 1});
+      int index = static_cast<int>(std::distance(begin, current));
+
+      animation.sorting.push_back({0, index, index + 1});
       if (*(current + 1) < *current)
       {
-        animation.push_back({1, current, current + 1});
+        animation.sorting.push_back({1, index, index + 1});
         std::iter_swap(current, current + 1);
         swapping = true;
       }
     }
   }
-
-  animation.push_back({-1, 0, 0});
+  animation.sorting.push_back({-1, 0, 0});
 }
 } // namespace nodify
 

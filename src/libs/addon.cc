@@ -10,6 +10,8 @@
 
 #include "Sorting.h"
 // #include "Utility.h"
+//#include "sorting.h"
+#include "animation.h"
 #include "utility.h"
 #include <iostream>
 #include <napi.h>
@@ -96,6 +98,12 @@ Napi::Value BubbleSort(const Napi::CallbackInfo &info)
   return returnArr;
 }
 
+/**
+ * @brief Get the Bubble Sort Animation object
+ *
+ * @param info
+ * @return Napi::Value
+ */
 Napi::Value GetBubbleSortAnimation(const Napi::CallbackInfo &info)
 {
   Napi::Env env = info.Env();
@@ -112,34 +120,26 @@ Napi::Value GetBubbleSortAnimation(const Napi::CallbackInfo &info)
     return env.Null();
   }
 
-  std::vector<std::vector<int>> animations;
-  std::vector<int> tempArr;
-  Napi::Array arr = info[0].As<Napi::Array>();
+  nodify::Animation animation;
+  std::vector<int> native_array;
+  Napi::Array jsArray = info[0].As<Napi::Array>();
 
-  for (int i = 0; i < arr.Length(); i++)
+  for (int i = 0; i < jsArray.Length(); i++)
   {
-    tempArr.push_back(Napi::Value(arr[i]).ToNumber().Int32Value());
+    native_array.push_back(Napi::Value(jsArray[i]).ToNumber().Int32Value());
   }
 
-  animations = NSorting::get_bubble_sort_animation(tempArr);
+  nodify::get_bubble_sort_animation(std::begin(native_array), std::end(native_array), animation);
+  Napi::Array jsAnimation = Napi::Array::New(info.Env(), animation.sorting.size());
 
-  Napi::Array returnAnimations = Napi::Array::New(info.Env(), animations.size());
-
-  uint32_t i = 0;
-  for (auto &e : animations)
+  for (auto current = std::begin(animation.sorting); current < std::end(animation.sorting); ++current)
   {
-    Napi::Array animation = Napi::Array::New(info.Env(), e.size());
+    Napi::Array jsStep = nodify::ToJSArray(info, std::begin(*current), std::end(*current));
 
-    uint32_t ii = 0;
-    for (auto &l : e)
-    {
-      animation[ii++] = Napi::Number::New(env, l);
-    }
-
-    returnAnimations[i++] = animation;
+    jsAnimation[static_cast<int>(std::distance(std::begin(animation.sorting), current))] = jsStep;
   }
 
-  return returnAnimations;
+  return jsAnimation;
 }
 
 Napi::Value InsertionSort(const Napi::CallbackInfo &info)

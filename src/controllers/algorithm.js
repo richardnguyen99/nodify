@@ -25,8 +25,15 @@ algorithmRouter.get("/:algorithmType/:algorithm", (req, res) => {
 
 // To keep it simple, we only use this router to get animations
 algorithmRouter.post("/:algorithmType/:algorithm", (req, res) => {
+  const { params } = req;
+
   res.send({
-    animation: addon.hello(),
+    animation: addon[
+      `get${utility.stringConverter.hyphenToPascal(
+        // eslint-disable-next-line comma-dangle
+        params.algorithm
+      )}Animation`
+    ](req.body.array),
   });
 });
 
