@@ -48,7 +48,26 @@ function hyphenToPascal(str) {
   );
 }
 
+/**
+ * Convert hyphen case to camcel case using Regex
+ *
+ * @example hyphenToCamel("bubble-sort") // -> "bubbleSort"
+ *
+ * @param {string} str
+ * @returns {string}
+ */
+function hyphenToCamel(str) {
+  return (
+    str
+      // Search for every dash and the following letters,
+      // capitalize the first letter and add a blank space
+      // before it.
+      .replace(/-([a-zA-Z0-9])/g, (matchStr) => `${matchStr[1].toUpperCase()}`)
+  );
+}
+
 module.exports = {
   hyphenToTitle,
   hyphenToPascal,
+  hyphenToCamel,
 };

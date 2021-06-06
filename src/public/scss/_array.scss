@@ -24,8 +24,17 @@
         margin-right: 0.5rem;
         font-weight: 600;
 
-        background-color: #f5f8f7;
+        background-color: rgba(245, 248, 247, 1);
         color: rgba(var(--nodify-dark), 1);
+
+        &--warning {
+          background-color: rgba(var(--nodify-warning), 1);
+        }
+
+        &--success {
+          background-color: rgba(var(--nodify-success), 1);
+          color: rgba(var(--nodify-text));
+        }
       }
     }
 

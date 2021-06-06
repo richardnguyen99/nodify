@@ -6,7 +6,7 @@
 
 const express = require("express");
 
-const utility = require("../util");
+const { stringConverter } = require("../util");
 const addon = require("../../build/Release/nodify.node");
 
 const algorithmRouter = express.Router();
@@ -19,20 +19,20 @@ algorithmRouter.get("/:algorithmType/:algorithm", (req, res) => {
   const { params } = req;
 
   res.render(`algorithm/${params.algorithmType}/${params.algorithm}`, {
-    title: utility.stringConverter.hyphenToTitle(params.algorithm),
+    title: stringConverter.hyphenToTitle(params.algorithm),
   });
 });
 
-// To keep it simple, we only use this router to get animations
-algorithmRouter.post("/:algorithmType/:algorithm", (req, res) => {
+algorithmRouter.post("/sorting/:sortingType", (req, res) => {
   const { params } = req;
 
   res.send({
+    sortedArray: addon[stringConverter.hyphenToCamel(params.sortingType)](
+      // eslint-disable-next-line comma-dangle
+      req.body.array,
+    ),
     animation: addon[
-      `get${utility.stringConverter.hyphenToPascal(
-        // eslint-disable-next-line comma-dangle
-        params.algorithm
-      )}Animation`
+      `get${stringConverter.hyphenToPascal(params.sortingType)}Animation`
     ](req.body.array),
   });
 });

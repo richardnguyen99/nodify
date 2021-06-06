@@ -46,18 +46,18 @@ void insert_sort(Iter begin, Iter end)
 
   for (Iter next = std::next(begin); next != end; ++next)
   {
-    Iter prev = std::prev(current);
+    Iter prev = std::prev(next);
 
-    if (*current < *prev)
+    if (*next < *prev)
     {
-      std::iter_swap(current, prev);
+      std::iter_swap(next, prev);
     }
     else
       return;
   }
 }
 
-template <typename T>
+template <typename Iter>
 void selection_sort(Iter begin, Iter end)
 {
   bool swapping = true;

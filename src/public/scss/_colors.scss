@@ -1,27 +1,37 @@
 [class*="--brand"] {
   --nodify-color: var(--nodify-brand);
+  --nodify-text: var(--nodify-light)
 }
 
 [class*="--primary"] {
   --nodify-color: var(--nodify-primary);
+  --nodify-text: var(--nodify-light)
 }
 
 [class*="--success"] {
   --nodify-color: var(--nodify-success);
+  --nodify-text: var(--nodify-light)
 }
 
 [class*="--warning"] {
   --nodify-color: var(--nodify-warning);
+  --nodify-text: var(--nodify-dark);
 }
 
 [class*="--danger"] {
   --nodify-color: var(--nodify-danger);
-
+  --nodify-text: var(--nodify-light)
 }
+
 [class*="--dark"] {
   --nodify-color: var(--nodify-dark);
+  --nodify-text: var(--nodify-light)
 }
 
 [class*="--icon"] {
   --nodify-color: var(--nodify-icon);
+}
+
+[class*="--node"] {
+  --nodify-color: 245, 248, 247;
 }

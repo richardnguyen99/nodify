@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /**
  * Functions and settings for sorting and array-based
  * data structures and algorithms
@@ -24,9 +25,9 @@ function generateNodeArray(randomArray) {
   arrayNodeList.classList.add("array__list-node");
 
   arrayContainer.style.height = "50px";
-  arrayContainer.style.width = `${randomArray.length * 50}px`;
+  arrayContainer.style.width = `${randomArray.length * (50 + 8)}px`;
   arrayNodeList.style.height = "50px";
-  arrayNodeList.style.width = `${randomArray.length * 50}px`;
+  arrayNodeList.style.width = `${randomArray.length * (50 + 8)}px`;
 
   arrayContainer.appendChild(arrayNodeList);
 
@@ -79,6 +80,34 @@ function generateArray() {
   }
 }
 
+/**
+ * Elements swapping animation
+ *
+ * @param {HTMLElement} element1
+ * @param {HTMLElement} element2
+ * @param {HTMLElement} arrayContainer
+ *
+ * @returns {void}
+ */
+function swapElement(element1, element2, arrayContainer) {
+  return new Promise((resolve) => {
+    const tempClassList = element1.classList;
+    const tempTransform = element1.style.transform;
+
+    element1.classList = element2.classList;
+    element1.style.transform = element2.style.transform;
+    element2.classList = tempClassList;
+    element2.style.transform = tempTransform;
+
+    window.requestAnimationFrame(() => {
+      setTimeout(() => {
+        arrayContainer.insertBefore(element2, element1);
+        resolve();
+      }, 250);
+    });
+  });
+}
+
 // eslint-disable-next-line no-unused-vars
 function bubbleSort() {
   const xhttp = new XMLHttpRequest();
@@ -87,7 +116,52 @@ function bubbleSort() {
     // eslint-disable-next-line eqeqeq
     if (this.readyState == 4 && this.status == 200) {
       array = xhttp.response.sortedArray;
-      animation = [];
+      animation = xhttp.response.animation;
+
+      let arrayListItems = document.querySelectorAll(".array__list-node__item");
+      const arrayContainer = document.querySelector(".array__container");
+
+      for (let i = 0; i < animation.length; i += 1) {
+        const [type, index1, index2] = animation[i];
+
+        if (type === 0) {
+          arrayListItems[index1].classList.add(
+            "array__list-node__item--warning",
+          );
+          arrayListItems[index2].classList.add(
+            "array__list-node__item--warning",
+          );
+        } else if (type === 1) {
+          // eslint-disable-next-line no-await-in-loop
+          await swapElement(
+            arrayListItems[index1],
+            arrayListItems[index2],
+            arrayContainer.querySelector(".array__list-node"),
+          );
+
+          arrayListItems = document.querySelectorAll(".array__list-node__item");
+        }
+
+        // eslint-disable-next-line no-await-in-loop
+        await new Promise((resolve) => {
+          setTimeout(() => {
+            resolve();
+          }, 250);
+        });
+
+        arrayListItems[index1].classList.remove(
+          "array__list-node__item--warning",
+        );
+        arrayListItems[index2].classList.remove(
+          "array__list-node__item--warning",
+        );
+      }
+
+      for (let i = 0; i < arrayListItems.length; i += 1) {
+        setTimeout(() => {
+          arrayListItems[i].classList.add("array__list-node__item--success");
+        }, i * 100);
+      }
     }
   };
 
