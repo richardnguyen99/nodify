@@ -15,17 +15,28 @@
 
 namespace nodify
 {
-template <typename Iter>
-void bubble_sort(Iter begin, Iter end)
+/**
+ * @brief Bubble sort implementation using iterators
+ *
+ * @tparam iter
+ * @param begin
+ * @param end
+ */
+template <typename iter>
+void bubble_sort(iter begin, iter end)
 {
+  // Flag to terminate the algorithm when there is
+  // no swap happening
   bool swapping = true;
 
+  //
   while (begin != end-- && swapping)
   {
     swapping = false;
 
-    for (Iter current = begin; current != end; ++current)
+    for (iter current = begin; current != end; ++current)
     {
+      // Compare two adjacent values
       if (*(current + 1) < *current)
       {
         std::iter_swap(current, current + 1);
@@ -36,17 +47,24 @@ void bubble_sort(Iter begin, Iter end)
   return;
 }
 
-template <typename Iter>
-void insert_sort(Iter begin, Iter end)
+/**
+ * @brief Insertion sort implementation using iterators
+ *
+ * @tparam iter
+ * @param begin
+ * @param end
+ */
+template <typename iter>
+void insertion_sort(iter begin, iter end)
 {
   if (begin == end)
   {
     return;
   }
 
-  for (Iter next = std::next(begin); next != end; ++next)
+  for (iter next = std::next(begin); next != end; ++next)
   {
-    Iter prev = std::prev(next);
+    iter prev = std::prev(next);
 
     if (*next < *prev)
     {
@@ -57,16 +75,16 @@ void insert_sort(Iter begin, Iter end)
   }
 }
 
-template <typename Iter>
-void selection_sort(Iter begin, Iter end)
+template <typename iter>
+void selection_sort(iter begin, iter end)
 {
   bool swapping = true;
   for (; begin != end && swapping; begin++)
   {
     swapping = false;
-    Iter smallest = begin;
+    iter smallest = begin;
 
-    for (Iter current = smallest; current != end; current++)
+    for (iter current = smallest; current != end; current++)
     {
       if (*current < *smallest)
       {
@@ -79,6 +97,30 @@ void selection_sort(Iter begin, Iter end)
       swapping = true;
       std::iter_swap(begin, smallest);
     }
+  }
+}
+
+template <typename iter>
+void quick_sort(iter begin, iter end)
+{
+  if (std::distance(begin, end) > 1)
+  {
+    iter pivot = begin;
+    iter bound = std::next(begin);
+
+    for (iter next = std::next(begin); next < end; ++next)
+    {
+      if (*next < *pivot)
+      {
+        std::iter_swap(next, bound);
+        bound++;
+      }
+    }
+
+    std::iter_swap(begin, bound - 1);
+
+    quick_sort(begin, bound - 1);
+    quick_sort(bound, end);
   }
 }
 } // namespace nodify
