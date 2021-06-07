@@ -1,0 +1,130 @@
+extends sort-layout
+
+block visual
+  form.form.d-flex.justify-content-center.align-items-center
+    div(style="max-width: 800px; padding-top: 5rem; padding-bottom: 5rem").card-body
+      .row.mb-3
+        label(for="arrayRange").col-lg-3.col-form-label.fw-bolder Array range
+        .col-lg-9
+          input(type="text" id="arrayRange" value="8").form-control.form-control-lg.form--solid
+          div(id="arrayNodeNote").form-text.mb-3 Please keep the value under 15
+      .row.mb-3
+        label(for="arrayRange").col-lg-3.col-form-label.fw-bolder Array type
+        .col-lg-9
+          div.d-flex.align-items-center
+            div.form-check.form--brand.form__check--solid.form-check-solid.me-4
+              input(id="arrayNode" type="checkbox" checked="checked" value="node").form-check-input
+              label(for="arrayNode").form-check-label.fw-bold Node
+            div.form-check.form--brand.form__check--solid.form-check-solid.me-4
+              input(id="arrayBar" type="checkbox" value="bar").form-check-input
+              label(for="arrayBar").form-check-label.fw-bold Bar
+      .row.mb-3
+        label.col-lg-3.col-form-label.fw-bolder
+        .col-lg-9
+          .d-flex
+            button(id="generateButton" type="button" onclick="generateArray()").btn.btn--text.btn--brand.fw-bolder.me-3 Generate
+            button(id="insertionSortButton" type="button" onclick="insertionSort()").btn.btn--text.btn--brand.btn--border.fw-bolder Insertion sort
+
+  div.array__container
+
+block documentation
+  div.d-flex.justify-content-center.align-items-center
+    div(style="max-width: 800px; padding-top: 5rem; padding-bottom: 5rem").card-body.doc
+      h1 Insertion Sort
+      p Insertion sort is the simplest sorting algorithm, which basically compare and swap positions of two adjacent values in the given correct order.
+      p To keep track of the animation steps, we track on which the algorithm performs comparisons and swapping.
+      p To optimize the simplicity of the codebase, we assign each type of step to specific numbers:
+      ul
+        li 0: comparison
+        li 1: swapping
+      p We also want to know which two indices these steps are operating on. Combined with the two types of step, we will have an animation array like this:
+      img(src="/assets/images/insertion-sort-array.png", alt="Insertion sort array structure", style="scale: 0.5")
+      p To understand how the procedure looks like, here is an example in pseudo code:
+      pre
+        code
+          | procedure get_insertion_sort_animation(array, animation)
+          |   boolean swapped := true
+          |   number length := size(array)
+          |
+          |   repeat
+          |     swapped := false
+          |     for i := 0 to exclusive length - 1 do
+          |
+          |       <strong># mark this as a comparison step</strong>
+          |       animation.push_back([0, array[i], array[i+1]])
+          |       if array[i+1] < array[i] then
+          |
+          |       <strong># mark this as a swapping step</strong>
+          |       animation.push_back([1, array[i], array[i+1]])
+          |         swap(array[i], array[i+1])
+          |         swapped := true
+          |
+          |       end if
+          |     end loop
+          |   until not swapped
+          | end procedure
+      p Next, we take these steps to Javascript functions to do the animation. Javascript only handles the animation according to the steps such as transform and styles. What we're looking in this Javascript are:
+      ul
+        li Listen to the steps by traversing through a loop.
+        li If the step is marked with <code>0</code>, we add some styles to indicate the according indices are being processed.
+        li If the step is marked with <code>1</code>, we perform the swapping animation on the according indices.
+        li Remove all of the processing styles the current elements
+        li (Optional) After the animation has terminated, we add styles to mark the elements as sorted.
+      p
+        a(data-bs-toggle="collapse" href="#code_1" role="button" aria-expanded="false" aria-controls="code_1").badge.bg-light.text-dark Toggle solution
+      div(id="code_1").collapse
+        pre
+          code
+            | function insertionSort() {
+            |
+            |  array = xhttp.response.sortedArray;
+            |  animation = xhttp.response.animation;
+            |
+            |  let arrayListItems = document.querySelectorAll(".array__list-node__item");
+            |  const arrayContainer = document.querySelector(".array__container");
+            |
+            |  for (let i = 0; i < animation.length; i += 1) {
+            |    const [type, index1, index2] = animation[i];
+            |
+            |    if (type === 0) {
+            |      arrayListItems[index1].classList.add(
+            |        "array__list-node__item--warning",
+            |      );
+            |      arrayListItems[index2].classList.add(
+            |        "array__list-node__item--warning",
+            |      );
+            |    } else if (type === 1) {
+            |      await swapElement(
+            |        arrayListItems[index1],
+            |        arrayListItems[index2],
+            |        arrayContainer.querySelector(".array__list-node"),
+            |      );
+            |
+            |      arrayListItems = document.querySelectorAll(".array__list-node__item");
+            |    }
+            |
+            |    await new Promise((resolve) => {
+            |      setTimeout(() => {
+            |        resolve();
+            |      }, 250);
+            |    });
+            |
+            |    arrayListItems[index1].classList.remove(
+            |      "array__list-node__item--warning",
+            |    );
+            |    arrayListItems[index2].classList.remove(
+            |      "array__list-node__item--warning",
+            |    );
+            |  }
+            |
+            |  for (let i = 0; i < arrayListItems.length; i += 1) {
+            |    setTimeout(() => {
+            |      arrayListItems[i].classList.add("array__list-node__item--success");
+            |    }, i * 100);
+            |  }
+            | }
+
+        div.blockquote-footer.mt-2 <em><strong>NOTE:</strong></em> This is just an example of how I implemented in my project, please check <a href="https://github.com/richardnguyen99/nodify/blob/main/src/public/js/array.js">my repo</a> to know more details!
+
+block sample
+  h1 Hello World
