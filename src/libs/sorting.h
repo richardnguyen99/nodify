@@ -64,14 +64,17 @@ void insertion_sort(iter begin, iter end)
 
   for (iter next = std::next(begin); next != end; ++next)
   {
-    iter prev = std::prev(next);
-
-    if (*next < *prev)
+    for (iter current = next; current > begin; --current)
     {
-      std::iter_swap(next, prev);
+      iter prev = std::prev(current);
+
+      if (*current < *prev)
+      {
+        std::iter_swap(current, prev);
+      }
+      else
+        break;
     }
-    else
-      return;
   }
 }
 

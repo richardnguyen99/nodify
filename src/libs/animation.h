@@ -90,30 +90,40 @@ template <typename iter>
 void get_selection_sort_animation(iter begin, iter end, Animation &animation)
 {
   bool swapping = true;
-  int begin_index = static_cast<int>(std::distance(begin, begin));
 
-  for (; begin != end && swapping; begin++)
+  for (iter temp = begin; temp != end && swapping; temp++)
   {
     swapping = false;
-    iter smallest = begin;
+    iter smallest = temp;
+    int temp_index = static_cast<int>(std::distance(begin, temp));
     int smallest_index = static_cast<int>(std::distance(begin, smallest));
+
+    // Mark this as the smallest node
+    animation.sorting.push_back({2, smallest_index, 1});
 
     for (iter current = smallest; current != end; current++)
     {
       int current_index = static_cast<int>(std::distance(begin, current));
-      animation.sorting.push_back({0, current_index, smallest_index});
+
+      // Mark this as the compare process
+      animation.sorting.push_back({0, smallest_index, current_index});
       if (*current < *smallest)
       {
-        animation.sorting.push_back({2, smallest_index, current_index});
         smallest = current;
+        smallest_index = static_cast<int>(std::distance(begin, smallest));
+
+        // New smallest mark
+        animation.sorting.push_back({2, smallest_index, 1});
       }
     }
 
     if (smallest != end)
     {
       swapping = true;
-      animation.sorting.push_back({1, begin_index, smallest_index});
-      std::iter_swap(begin, smallest);
+
+      // Mark swapping
+      animation.sorting.push_back({1, temp_index, smallest_index});
+      std::iter_swap(temp, smallest);
     }
   }
 }
