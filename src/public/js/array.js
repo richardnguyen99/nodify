@@ -326,3 +326,66 @@ function selectionSort() {
   xhttp.setRequestHeader("Content-Type", "application/json;charset=utf-8");
   xhttp.send(JSON.stringify({ array }));
 }
+
+// eslint-disable-next-line no-unused-vars
+function quickSort() {
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.onreadystatechange = async function () {
+    // eslint-disable-next-line eqeqeq
+    if (this.readyState == 4 && this.status == 200) {
+      array = xhttp.response.sortedArray;
+      animation = xhttp.response.animation;
+
+      let arrayListItems = document.querySelectorAll(".array__list-node__item");
+      const arrayContainer = document.querySelector(".array__container");
+
+      for (let i = 0; i < animation.length; i += 1) {
+        const [type, index1, index2] = animation[i];
+
+        if (type === 0) {
+          arrayListItems[index1].classList.add(
+            "array__list-node__item--warning",
+          );
+          arrayListItems[index2].classList.add(
+            "array__list-node__item--warning",
+          );
+        } else if (type === 1) {
+          // eslint-disable-next-line no-await-in-loop
+          await swapIndexElement(
+            index1,
+            index2,
+            arrayContainer.querySelector(".array__list-node"),
+          );
+
+          arrayListItems = document.querySelectorAll(".array__list-node__item");
+        }
+
+        // eslint-disable-next-line no-await-in-loop
+        await new Promise((resolve) => {
+          setTimeout(() => {
+            resolve();
+          }, 250);
+        });
+
+        arrayListItems[index1].classList.remove(
+          "array__list-node__item--warning",
+        );
+        arrayListItems[index2].classList.remove(
+          "array__list-node__item--warning",
+        );
+      }
+
+      for (let i = 0; i < arrayListItems.length; i += 1) {
+        setTimeout(() => {
+          arrayListItems[i].classList.add("array__list-node__item--success");
+        }, i * 100);
+      }
+    }
+  };
+
+  xhttp.responseType = "json";
+  xhttp.open("POST", "/algorithm/sorting/quick-sort");
+  xhttp.setRequestHeader("Content-Type", "application/json;charset=utf-8");
+  xhttp.send(JSON.stringify({ array }));
+}

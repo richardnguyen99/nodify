@@ -106,3 +106,7 @@ dist
 # CMake and Makefile builds
 **/build/*
 !**/build/Release
+
+# Local files
+main.cc
+.vscode/

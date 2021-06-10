@@ -127,6 +127,39 @@ void get_selection_sort_animation(iter begin, iter end, Animation &animation)
     }
   }
 }
+
+template <typename iter>
+void get_quick_sort_animation(iter begin, iter end, iter lower, iter upper, Animation &animation)
+{
+  if (std::distance(lower, upper) > 1)
+  {
+    iter pivot = lower;
+    iter bound = std::next(lower);
+    int pivot_index = static_cast<int>(std::distance(begin, pivot));
+    int bound_index = static_cast<int>(std::distance(begin, bound));
+    int begin_index = static_cast<int>(std::distance(begin, lower));
+
+    for (iter next = std::next(lower); next < upper; ++next)
+    {
+      int next_index = static_cast<int>(std::distance(begin, next));
+
+      animation.sorting.push_back({0, next_index, pivot_index});
+      if (*next < *pivot)
+      {
+        animation.sorting.push_back({1, next_index, bound_index});
+        std::iter_swap(next, bound);
+        bound_index = static_cast<int>(std::distance(begin, bound + 1));
+        bound++;
+      }
+    }
+
+    animation.sorting.push_back({1, begin_index, bound_index - 1});
+    std::iter_swap(lower, bound - 1);
+
+    get_quick_sort_animation(begin, end, lower, bound - 1, animation);
+    get_quick_sort_animation(begin, end, bound, upper, animation);
+  }
+}
 } // namespace nodify
 
 #endif /* NODIFY_ANIMATION_H */
