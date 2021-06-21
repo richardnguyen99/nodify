@@ -15,6 +15,14 @@ algorithmRouter.get("/", (_req, res) => {
   res.render("algorithm");
 });
 
+algorithmRouter.get("/:algorithmType", (req, res) => {
+  const { params } = req;
+
+  res.render(`algorithm/${params.algorithmType}/${params.algorithmType}`, {
+    title: stringConverter.hyphenToTitle(params.algorithmType),
+  });
+});
+
 algorithmRouter.get("/:algorithmType/:algorithm", (req, res) => {
   const { params } = req;
 

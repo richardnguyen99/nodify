@@ -15,8 +15,13 @@ describe("Getting app...", () => {
   it("responds to /ds", (done) => {
     request(app).get("/ds").expect(200, done);
   });
+
   it("responds to /algorithm", (done) => {
     request(app).get("/algorithm").expect(200, done);
+  });
+
+  it("responds to /algorithm/sorting", (done) => {
+    request(app).get("/algorithm/sorting").expect(200, done);
   });
 
   it("responds to /ping", (done) => {
